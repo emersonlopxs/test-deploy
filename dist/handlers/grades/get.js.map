@@ -1,0 +1,1 @@
+{"version":3,"sources":["../../../src/handlers/grades/get.js"],"names":["get","params","models","grades"],"mappings":";;;;;;;;;AAAA;;AAEO,MAAMA,GAAG,GAAGC,MAAM,IAAIC,MAAM,CAACC,MAAP,CAAcH,GAAd,CAAkBC,MAAlB,CAAtB","sourcesContent":["import * as models from \"~/models\";\n\nexport const get = params => models.grades.get(params);\n"],"file":"get.js"}

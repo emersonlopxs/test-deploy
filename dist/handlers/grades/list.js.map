@@ -1,0 +1,1 @@
+{"version":3,"sources":["../../../src/handlers/grades/list.js"],"names":["list","params","models","grades"],"mappings":";;;;;;;;;AAAA;;AAEO,MAAMA,IAAI,GAAGC,MAAM,IAAIC,MAAM,CAACC,MAAP,CAAcH,IAAd,CAAmBC,MAAnB,CAAvB","sourcesContent":["import * as models from \"~/models\";\n\nexport const list = params => models.grades.list(params);\n"],"file":"list.js"}

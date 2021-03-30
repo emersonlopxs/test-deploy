@@ -1,0 +1,1 @@
+{"version":3,"sources":["../../../src/handlers/dashboard/get.js"],"names":["get","params","models","dashboard"],"mappings":";;;;;;;;;AAAA;;AAEO,MAAMA,GAAG,GAAGC,MAAM,IAAIC,MAAM,CAACC,SAAP,CAAiBH,GAAjB,CAAqBC,MAArB,CAAtB","sourcesContent":["import * as models from \"~/models\";\n\nexport const get = params => models.dashboard.get(params);\n"],"file":"get.js"}

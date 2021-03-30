@@ -1,0 +1,1 @@
+{"version":3,"sources":["../../../src/models/accesses/index.js"],"names":[],"mappings":";;;;;;;;;;;;;;;;;;AAAA;;AACA","sourcesContent":["export { list } from \"./list\";\nexport { insert } from \"./insert\";\n"],"file":"index.js"}

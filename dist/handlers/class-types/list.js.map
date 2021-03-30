@@ -1,0 +1,1 @@
+{"version":3,"sources":["../../../src/handlers/class-types/list.js"],"names":["list","params","models","classTypes"],"mappings":";;;;;;;;;AAAA;;AAEO,MAAMA,IAAI,GAAGC,MAAM,IAAIC,MAAM,CAACC,UAAP,CAAkBH,IAAlB,CAAuBC,MAAvB,CAAvB","sourcesContent":["import * as models from \"~/models\";\n\nexport const list = params => models.classTypes.list(params);\n"],"file":"list.js"}

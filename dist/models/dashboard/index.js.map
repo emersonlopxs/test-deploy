@@ -1,0 +1,1 @@
+{"version":3,"sources":["../../../src/models/dashboard/index.js"],"names":[],"mappings":";;;;;;;;;;;;;;;;;;;;;;;;AAAA;;AACA;;AACA","sourcesContent":["export { list } from \"./list\";\nexport { get } from \"./get\";\nexport { getXls } from \"./get-xls\";\n"],"file":"index.js"}

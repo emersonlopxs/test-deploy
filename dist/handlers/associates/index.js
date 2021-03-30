@@ -1,0 +1,73 @@
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+Object.defineProperty(exports, "list", {
+  enumerable: true,
+  get: function () {
+    return _list.list;
+  }
+});
+Object.defineProperty(exports, "get", {
+  enumerable: true,
+  get: function () {
+    return _get.get;
+  }
+});
+Object.defineProperty(exports, "insert", {
+  enumerable: true,
+  get: function () {
+    return _insert.insert;
+  }
+});
+Object.defineProperty(exports, "update", {
+  enumerable: true,
+  get: function () {
+    return _update.update;
+  }
+});
+Object.defineProperty(exports, "remove", {
+  enumerable: true,
+  get: function () {
+    return _remove.remove;
+  }
+});
+exports.router = void 0;
+
+var _express = require("express");
+
+var _auth = require("~/core/auth");
+
+var _list = require("./list");
+
+var _get = require("./get");
+
+var _insert = require("./insert");
+
+var _update = require("./update");
+
+var _remove = require("./remove");
+
+const router = (0, _express.Router)();
+exports.router = router;
+router.get("/", (req, res, next) => (0, _list.list)({
+  query: req.query.query,
+  limit: req.query.limit,
+  offset: req.query.offset
+}).then(data => res.json(data)).catch(next));
+router.get("/:id", _auth.auth, (req, res, next) => (0, _get.get)({
+  id: req.params.id
+}).then(data => res.json(data)).catch(next));
+router.post("/", _auth.auth, (req, res, next) => (0, _insert.insert)({ ...req.body,
+  ...req.files
+}).then(() => res.status(201).end()).catch(next));
+router.patch("/:id", _auth.auth, (req, res, next) => (0, _update.update)({
+  id: req.params.id,
+  ...req.body,
+  ...req.files
+}).then(() => res.status(201).end()).catch(next));
+router.delete("/:id", _auth.auth, (req, res, next) => (0, _remove.remove)({
+  id: req.params.id
+}).then(() => res.status(201).end()).catch(next));
+//# sourceMappingURL=index.js.map

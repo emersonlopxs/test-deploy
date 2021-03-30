@@ -1,0 +1,5646 @@
+{
+  "/admins/{userId}": {
+    "get": {
+      "tags": [
+        "Admins"
+      ],
+      "description": "Get a admin",
+      "responses": {
+        "200": {
+          "description": "Result",
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "userId": {
+                    "type": "integer",
+                    "example": 1
+                  },
+                  "name": {
+                    "type": "string",
+                    "example": "Alice"
+                  },
+                  "username": {
+                    "type": "string",
+                    "example": "alice@contoso.com"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "parameters": [
+        {
+          "name": "userId",
+          "in": "path",
+          "required": true,
+          "description": "Id",
+          "schema": {
+            "type": "number"
+          }
+        }
+      ]
+    },
+    "delete": {
+      "tags": [
+        "Admins"
+      ],
+      "description": "Delete a admins",
+      "responses": {
+        "204": {
+          "description": "Deleted"
+        }
+      },
+      "parameters": [
+        {
+          "name": "userId",
+          "in": "path",
+          "required": true,
+          "description": "Id",
+          "schema": {
+            "type": "number"
+          }
+        }
+      ]
+    },
+    "patch": {
+      "tags": [
+        "Admins"
+      ],
+      "description": "Update a admin",
+      "responses": {
+        "204": {
+          "description": "Result"
+        }
+      },
+      "requestBody": {
+        "required": true,
+        "description": "Request body",
+        "content": {
+          "application/json": {
+            "schema": {
+              "type": "object",
+              "properties": {
+                "name": {
+                  "type": "string",
+                  "example": "Alice"
+                },
+                "password": {
+                  "type": "string",
+                  "minLength": 8,
+                  "example": "12345678"
+                }
+              }
+            }
+          }
+        }
+      },
+      "parameters": [
+        {
+          "name": "userId",
+          "in": "path",
+          "required": true,
+          "description": "Id",
+          "schema": {
+            "type": "number"
+          }
+        }
+      ]
+    }
+  },
+  "/admins": {
+    "post": {
+      "tags": [
+        "Admins"
+      ],
+      "description": "Insert a admin",
+      "responses": {
+        "201": {
+          "description": "Created"
+        }
+      },
+      "requestBody": {
+        "required": true,
+        "description": "Request body",
+        "content": {
+          "application/json": {
+            "schema": {
+              "type": "object",
+              "required": [
+                "email",
+                "name",
+                "password"
+              ],
+              "properties": {
+                "email": {
+                  "type": "string",
+                  "example": "alice@contoso.com",
+                  "format": "email"
+                },
+                "name": {
+                  "type": "string",
+                  "example": "Alice"
+                },
+                "password": {
+                  "type": "string",
+                  "minLength": 8,
+                  "example": "12345678"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "get": {
+      "tags": [
+        "Admins"
+      ],
+      "description": "List all admins",
+      "responses": {
+        "200": {
+          "description": "Result",
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "limit": {
+                    "type": "integer"
+                  },
+                  "offset": {
+                    "type": "integer"
+                  },
+                  "total": {
+                    "type": "integer"
+                  },
+                  "rows": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "userId": {
+                          "type": "integer",
+                          "example": 1
+                        },
+                        "name": {
+                          "type": "string",
+                          "example": "Alice"
+                        },
+                        "username": {
+                          "type": "string",
+                          "example": "alice@contoso.com"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "parameters": [
+        {
+          "name": "query",
+          "in": "query",
+          "required": false,
+          "description": "Term to query admin's name",
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "limit",
+          "in": "query",
+          "required": false,
+          "description": "Result limit",
+          "schema": {
+            "type": "number"
+          }
+        },
+        {
+          "name": "offset",
+          "in": "query",
+          "required": false,
+          "description": "Result offset",
+          "schema": {
+            "type": "number"
+          }
+        }
+      ]
+    }
+  },
+  "/classTypes/{id}": {
+    "get": {
+      "tags": [
+        "ClassTypes"
+      ],
+      "description": "Get a ClassType",
+      "responses": {
+        "200": {
+          "description": "Listed",
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "integer",
+                    "example": 3
+                  },
+                  "name": {
+                    "type": "string",
+                    "example": "Empreendedorismo"
+                  },
+                  "color": {
+                    "type": "string",
+                    "example": "#000000"
+                  },
+                  "description": {
+                    "type": "string",
+                    "nullable": true,
+                    "example": "Aula de empreendedorismo"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "404": {
+          "description": "Not found"
+        }
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "required": true,
+          "description": "ClassTypes's Id",
+          "schema": {
+            "type": "string"
+          }
+        }
+      ]
+    },
+    "delete": {
+      "tags": [
+        "ClassTypes"
+      ],
+      "description": "Delete a ClassType",
+      "responses": {
+        "204": {
+          "description": "Deleted"
+        }
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "required": true,
+          "description": "ClassType's Id",
+          "schema": {
+            "type": "string"
+          }
+        }
+      ]
+    },
+    "patch": {
+      "tags": [
+        "ClassTypes"
+      ],
+      "description": "Update a ClassType",
+      "responses": {
+        "204": {
+          "description": "Updated"
+        }
+      },
+      "requestBody": {
+        "required": true,
+        "description": "Request body",
+        "content": {
+          "application/json": {
+            "schema": {
+              "type": "object",
+              "properties": {
+                "name": {
+                  "type": "string",
+                  "example": "Empreendedorismo"
+                },
+                "color": {
+                  "type": "string",
+                  "example": "#A3B393"
+                },
+                "description": {
+                  "type": "string",
+                  "example": "Aula de empreendedorismo"
+                }
+              }
+            }
+          }
+        }
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "required": true,
+          "description": "ClassType's Id",
+          "schema": {
+            "type": "string"
+          }
+        }
+      ]
+    }
+  },
+  "/classTypes": {
+    "post": {
+      "tags": [
+        "ClassTypes"
+      ],
+      "description": "Insert a ClassType",
+      "responses": {
+        "201": {
+          "description": "Result"
+        }
+      },
+      "requestBody": {
+        "required": true,
+        "description": "Request body",
+        "content": {
+          "application/json": {
+            "schema": {
+              "type": "object",
+              "required": [
+                "name"
+              ],
+              "properties": {
+                "name": {
+                  "type": "string",
+                  "example": "Empreendedorismo"
+                },
+                "color": {
+                  "type": "string",
+                  "example": "#000000"
+                },
+                "description": {
+                  "type": "string",
+                  "example": "Aula de empreendedorismo"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "get": {
+      "tags": [
+        "ClassTypes"
+      ],
+      "description": "List all class type",
+      "security": [],
+      "responses": {
+        "200": {
+          "description": "Listed",
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "query": {
+                    "type": "string",
+                    "example": "Matemática"
+                  },
+                  "classTypeIds": {
+                    "type": "array",
+                    "items": {
+                      "type": "integer"
+                    },
+                    "example": null
+                  },
+                  "limit": {
+                    "type": "integer",
+                    "example": 10
+                  },
+                  "offset": {
+                    "type": "integer",
+                    "example": 0
+                  },
+                  "total": {
+                    "type": "integer",
+                    "example": 15
+                  },
+                  "rows": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "id": {
+                          "type": "integer",
+                          "example": 1
+                        },
+                        "name": {
+                          "type": "string",
+                          "example": "Empreendedorismo"
+                        },
+                        "color": {
+                          "type": "string",
+                          "example": "#000000"
+                        },
+                        "description": {
+                          "type": "string",
+                          "nullable": true,
+                          "example": "Aula de empreendedorismo"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "parameters": [
+        {
+          "in": "query",
+          "name": "query",
+          "description": "Term to query ClassType's name",
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "classTypeIds",
+          "in": "query",
+          "description": "List ClassType Ids",
+          "style": "spaceDelimited",
+          "explode": true,
+          "schema": {
+            "type": "array",
+            "items": {
+              "type": "integer"
+            }
+          }
+        },
+        {
+          "in": "query",
+          "name": "limit",
+          "description": "Result limit",
+          "schema": {
+            "type": "number"
+          }
+        },
+        {
+          "in": "query",
+          "name": "offset",
+          "description": "Result offset",
+          "schema": {
+            "type": "number"
+          }
+        }
+      ]
+    }
+  },
+  "/classTypes/subjects/carousels": {
+    "get": {
+      "tags": [
+        "ClassTypes"
+      ],
+      "description": "List subjects and classType by cardNumbers",
+      "responses": {
+        "200": {
+          "description": "Listed",
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "workshops": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "id": {
+                          "type": "integer",
+                          "example": 1
+                        },
+                        "name": {
+                          "type": "string",
+                          "example": "Matemática"
+                        },
+                        "color": {
+                          "type": "string",
+                          "example": "#191919"
+                        },
+                        "description": {
+                          "type": "string",
+                          "nullable": true,
+                          "example": "Descrição da assunto"
+                        },
+                        "classQuantity": {
+                          "type": "integer",
+                          "example": 100
+                        }
+                      }
+                    }
+                  },
+                  "subjects": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "id": {
+                          "type": "integer",
+                          "example": 1
+                        },
+                        "name": {
+                          "type": "string",
+                          "example": "Matemática"
+                        },
+                        "color": {
+                          "type": "string",
+                          "example": "#191919"
+                        },
+                        "classQuantity": {
+                          "type": "integer",
+                          "example": 100
+                        }
+                      }
+                    }
+                  },
+                  "otherThemes": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "id": {
+                          "type": "integer",
+                          "example": 1
+                        },
+                        "name": {
+                          "type": "string",
+                          "example": "Empreendedorismo"
+                        },
+                        "color": {
+                          "type": "string",
+                          "example": "#191919"
+                        },
+                        "description": {
+                          "type": "string",
+                          "nullable": true,
+                          "example": "Descrição do tema"
+                        },
+                        "classQuantity": {
+                          "type": "integer",
+                          "example": 100
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "parameters": [
+        {
+          "name": "cardNumbers",
+          "in": "query",
+          "description": "Número máximo de cards no carrossel",
+          "schema": {
+            "type": "number"
+          }
+        }
+      ]
+    }
+  },
+  "/classTypes/{classTypeId}/subjects": {
+    "get": {
+      "tags": [
+        "ClassTypes"
+      ],
+      "description": "List subjects by classTypeId",
+      "security": [],
+      "responses": {
+        "200": {
+          "description": "Listed",
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "limit": {
+                    "type": "integer",
+                    "example": 10
+                  },
+                  "offset": {
+                    "type": "integer",
+                    "example": 0
+                  },
+                  "filter": {
+                    "type": "object",
+                    "properties": {
+                      "siteIds": {
+                        "type": "array",
+                        "items": {
+                          "type": "integer"
+                        },
+                        "example": null
+                      },
+                      "keyword": {
+                        "type": "string",
+                        "example": "Balé"
+                      }
+                    }
+                  },
+                  "total": {
+                    "type": "integer",
+                    "example": 30
+                  },
+                  "rows": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "id": {
+                          "type": "integer",
+                          "example": 1
+                        },
+                        "name": {
+                          "type": "string",
+                          "example": "Matemática"
+                        },
+                        "color": {
+                          "type": "string",
+                          "example": "#191919"
+                        },
+                        "description": {
+                          "type": "string",
+                          "nullable": true,
+                          "example": "Descrição da assunto"
+                        },
+                        "classQuantity": {
+                          "type": "integer",
+                          "example": 10
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "parameters": [
+        {
+          "name": "classTypeId",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "integer"
+          }
+        },
+        {
+          "name": "siteIds",
+          "in": "query",
+          "description": "List by subject id",
+          "style": "spaceDelimited",
+          "explode": true,
+          "schema": {
+            "type": "array",
+            "items": {
+              "type": "integer"
+            },
+            "example": [
+              1
+            ]
+          }
+        },
+        {
+          "name": "keyword",
+          "in": "query",
+          "description": "A part of subject name",
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "limit",
+          "in": "query",
+          "schema": {
+            "type": "integer"
+          }
+        },
+        {
+          "name": "offset",
+          "in": "query",
+          "schema": {
+            "type": "integer"
+          }
+        }
+      ]
+    }
+  },
+  "/dashboard/{name}/xls": {
+    "get": {
+      "tags": [
+        "Dashboard"
+      ],
+      "description": "Get a dashboard",
+      "responses": {
+        "200": {
+          "description": "Listed",
+          "content": {
+            "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet": {
+              "schema": {
+                "type": "object"
+              }
+            }
+          }
+        }
+      },
+      "parameters": [
+        {
+          "name": "from",
+          "in": "query",
+          "allowReserved": true,
+          "description": "From date",
+          "schema": {
+            "type": "string",
+            "format": "date-time"
+          }
+        },
+        {
+          "name": "to",
+          "in": "query",
+          "allowReserved": true,
+          "description": "To date",
+          "schema": {
+            "type": "string",
+            "format": "date-time"
+          }
+        },
+        {
+          "in": "path",
+          "name": "name",
+          "required": true,
+          "description": "Dashboard item",
+          "schema": {
+            "type": "string",
+            "enum": [
+              "classContentsAccesses",
+              "newClasses",
+              "newStudents",
+              "newTeachers",
+              "studentsAccesses",
+              "studentsVoucher",
+              "teacherAccesses"
+            ]
+          }
+        }
+      ]
+    }
+  },
+  "/dashboard/{name}": {
+    "get": {
+      "tags": [
+        "Dashboard"
+      ],
+      "description": "Get a dashoboard",
+      "responses": {
+        "200": {
+          "description": "Listed",
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object"
+              }
+            }
+          }
+        }
+      },
+      "parameters": [
+        {
+          "name": "from",
+          "in": "query",
+          "style": "spaceDelimited",
+          "allowReserved": true,
+          "description": "From date",
+          "schema": {
+            "type": "string",
+            "format": "date-time"
+          }
+        },
+        {
+          "name": "to",
+          "in": "query",
+          "style": "spaceDelimited",
+          "allowReserved": true,
+          "description": "To date",
+          "schema": {
+            "type": "string",
+            "format": "date-time"
+          }
+        },
+        {
+          "name": "name",
+          "in": "path",
+          "required": true,
+          "description": "Dashboard item",
+          "schema": {
+            "type": "string",
+            "enum": [
+              "classContentsAccesses",
+              "newClasses",
+              "newStudents",
+              "newTeachers",
+              "studentsAccesses",
+              "studentsVoucher",
+              "teacherAccesses"
+            ]
+          }
+        }
+      ]
+    }
+  },
+  "/dashboard": {
+    "get": {
+      "tags": [
+        "Dashboard"
+      ],
+      "description": "List all dashboard",
+      "responses": {
+        "200": {
+          "description": "Listed",
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "title": {
+                      "type": "string",
+                      "example": "classContentsAccesses"
+                    },
+                    "value": {
+                      "type": "integer",
+                      "example": 1
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "parameters": [
+        {
+          "name": "from",
+          "in": "query",
+          "allowReserved": true,
+          "description": "From date",
+          "schema": {
+            "type": "string",
+            "format": "date-time"
+          }
+        },
+        {
+          "name": "to",
+          "in": "query",
+          "allowReserved": true,
+          "description": "To date",
+          "schema": {
+            "type": "string",
+            "format": "date-time"
+          }
+        }
+      ]
+    }
+  },
+  "/grades/{id}": {
+    "get": {
+      "tags": [
+        "Grades"
+      ],
+      "description": "Get a grade",
+      "responses": {
+        "200": {
+          "description": "Listed",
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "integer",
+                    "example": 1
+                  },
+                  "name": {
+                    "type": "string",
+                    "example": "1º Ano Fundamental"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "404": {
+          "description": "Not found"
+        }
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "required": true,
+          "description": "Id",
+          "schema": {
+            "type": "string"
+          }
+        }
+      ]
+    },
+    "delete": {
+      "tags": [
+        "Grades"
+      ],
+      "description": "Delete a grades",
+      "responses": {
+        "204": {
+          "description": "Deleted"
+        },
+        "404": {
+          "description": "Not found"
+        }
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "required": true,
+          "description": "Id",
+          "schema": {
+            "type": "string"
+          }
+        }
+      ]
+    },
+    "patch": {
+      "tags": [
+        "Grades"
+      ],
+      "description": "Insert a grade",
+      "responses": {
+        "204": {
+          "description": "Updated"
+        }
+      },
+      "requestBody": {
+        "required": true,
+        "description": "Request body",
+        "content": {
+          "application/json": {
+            "schema": {
+              "type": "object",
+              "properties": {
+                "name": {
+                  "type": "string",
+                  "example": "3º Ano Médio"
+                }
+              }
+            }
+          }
+        }
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "required": true,
+          "description": "Id",
+          "schema": {
+            "type": "string"
+          }
+        }
+      ]
+    }
+  },
+  "/grades": {
+    "post": {
+      "tags": [
+        "Grades"
+      ],
+      "description": "Insert a grade",
+      "responses": {
+        "201": {
+          "description": "Created"
+        }
+      },
+      "requestBody": {
+        "required": true,
+        "description": "Request body",
+        "content": {
+          "application/json": {
+            "schema": {
+              "type": "object",
+              "required": [
+                "name"
+              ],
+              "properties": {
+                "name": {
+                  "type": "string",
+                  "example": "1º Ano Fundamental"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "get": {
+      "tags": [
+        "Grades"
+      ],
+      "description": "List all grades",
+      "security": [],
+      "responses": {
+        "200": {
+          "description": "Listed",
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "query": {
+                    "type": "string",
+                    "example": "1º Ano Fundamental"
+                  },
+                  "limit": {
+                    "type": "integer",
+                    "example": 10
+                  },
+                  "offset": {
+                    "type": "integer",
+                    "example": 0
+                  },
+                  "total": {
+                    "type": "integer",
+                    "example": 15
+                  },
+                  "rows": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "id": {
+                          "type": "integer",
+                          "example": 1
+                        },
+                        "name": {
+                          "type": "string",
+                          "example": "1º Ano Fundamental"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "parameters": [
+        {
+          "in": "query",
+          "name": "query",
+          "description": "Term to query Grade's name",
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "in": "query",
+          "name": "limit",
+          "description": "Result limit",
+          "schema": {
+            "type": "number"
+          }
+        },
+        {
+          "in": "query",
+          "name": "offset",
+          "description": "Result offset",
+          "schema": {
+            "type": "number"
+          }
+        }
+      ]
+    }
+  },
+  "/grades/subjects": {
+    "get": {
+      "tags": [
+        "Grades"
+      ],
+      "description": "List all grades with subjects",
+      "responses": {
+        "200": {
+          "description": "Listed",
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "query": {
+                    "type": "string",
+                    "example": "1º Ano Fundamental"
+                  },
+                  "limit": {
+                    "type": "integer",
+                    "example": 10
+                  },
+                  "offset": {
+                    "type": "integer",
+                    "example": 0
+                  },
+                  "total": {
+                    "type": "integer",
+                    "example": 15
+                  },
+                  "rows": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "id": {
+                          "type": "integer",
+                          "example": 1
+                        },
+                        "name": {
+                          "type": "string",
+                          "example": "1º Ano Fundamental"
+                        },
+                        "subjects": {
+                          "type": "array",
+                          "items": {
+                            "type": "object",
+                            "properties": {
+                              "id": {
+                                "type": "integer",
+                                "example": 1
+                              },
+                              "name": {
+                                "type": "string",
+                                "example": "Matemática"
+                              },
+                              "color": {
+                                "type": "string",
+                                "example": "#000000"
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "parameters": [
+        {
+          "in": "query",
+          "name": "query",
+          "schema": {
+            "type": "string"
+          },
+          "description": "Term to query"
+        },
+        {
+          "in": "query",
+          "name": "limit",
+          "description": "Result limit",
+          "schema": {
+            "type": "number"
+          }
+        },
+        {
+          "in": "query",
+          "name": "offset",
+          "description": "Result offset",
+          "schema": {
+            "type": "number"
+          }
+        }
+      ]
+    }
+  },
+  "/oauth": {
+    "post": {
+      "tags": [
+        "Users"
+      ],
+      "description": "Login user",
+      "security": [],
+      "responses": {
+        "200": {
+          "description": "Login",
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      },
+      "requestBody": {
+        "required": true,
+        "description": "The user login request body",
+        "content": {
+          "application/json": {
+            "schema": {
+              "type": "object",
+              "required": [
+                "username",
+                "password"
+              ],
+              "properties": {
+                "username": {
+                  "type": "string",
+                  "example": "admingf@accenture.com"
+                },
+                "password": {
+                  "type": "string",
+                  "minLength": 8,
+                  "example": "12345678"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "/sites/{id}": {
+    "get": {
+      "tags": [
+        "Sites"
+      ],
+      "description": "Get one site",
+      "responses": {
+        "200": {
+          "description": "Listed",
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "integer",
+                    "example": 1
+                  },
+                  "name": {
+                    "type": "string",
+                    "example": "Comunidade Xyz"
+                  },
+                  "siteCode": {
+                    "type": "string",
+                    "example": "654654Z"
+                  },
+                  "city": {
+                    "type": "string",
+                    "example": "Belo Horizonte"
+                  },
+                  "state": {
+                    "type": "string",
+                    "example": "MG"
+                  },
+                  "createdAt": {
+                    "type": "object",
+                    "example": "2020-10-08T10:54:04.401Z"
+                  },
+                  "modifiedAt": {
+                    "type": "object",
+                    "example": "2020-10-08T10:54:04.401Z"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "404": {
+          "description": "Not found"
+        }
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "required": true,
+          "description": "Id",
+          "schema": {
+            "type": "integer"
+          }
+        }
+      ]
+    },
+    "delete": {
+      "tags": [
+        "Sites"
+      ],
+      "description": "Delete a site",
+      "responses": {
+        "204": {
+          "description": "Deleted"
+        }
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "required": true,
+          "description": "Site's id",
+          "schema": {
+            "type": "integer"
+          }
+        }
+      ]
+    },
+    "patch": {
+      "tags": [
+        "Sites"
+      ],
+      "description": "Update a site",
+      "responses": {
+        "200": {
+          "description": "Updated",
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "integer"
+              }
+            }
+          }
+        }
+      },
+      "requestBody": {
+        "required": true,
+        "description": "Request body",
+        "content": {
+          "application/json": {
+            "schema": {
+              "type": "object",
+              "properties": {
+                "name": {
+                  "type": "string",
+                  "example": "Comunidade Xyz"
+                },
+                "siteCode": {
+                  "type": "string",
+                  "example": "654654Z"
+                },
+                "city": {
+                  "type": "string",
+                  "example": "Belo Horizonte"
+                },
+                "state": {
+                  "type": "string",
+                  "example": "MG"
+                }
+              }
+            }
+          }
+        }
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "required": true,
+          "schema": {
+            "type": "integer"
+          },
+          "description": "Site's id"
+        }
+      ]
+    }
+  },
+  "/sites": {
+    "post": {
+      "tags": [
+        "Sites"
+      ],
+      "description": "Insert one site",
+      "responses": {
+        "200": {
+          "description": "Created",
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "integer"
+              }
+            }
+          }
+        }
+      },
+      "requestBody": {
+        "required": true,
+        "description": "Request body",
+        "content": {
+          "application/json": {
+            "schema": {
+              "type": "object",
+              "required": [
+                "name",
+                "siteCode",
+                "city",
+                "state"
+              ],
+              "properties": {
+                "name": {
+                  "type": "string",
+                  "example": "Comunidade Xyz"
+                },
+                "siteCode": {
+                  "type": "string",
+                  "example": "654654Z"
+                },
+                "city": {
+                  "type": "string",
+                  "example": "Belo Horizonte"
+                },
+                "state": {
+                  "type": "string",
+                  "example": "MG"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "get": {
+      "tags": [
+        "Sites"
+      ],
+      "description": "Get sites",
+      "security": [],
+      "responses": {
+        "200": {
+          "description": "Listed",
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "query": {
+                    "type": "string",
+                    "example": "Comunidade Xyz"
+                  },
+                  "limit": {
+                    "type": "integer",
+                    "example": 10
+                  },
+                  "offset": {
+                    "type": "integer",
+                    "example": 0
+                  },
+                  "total": {
+                    "type": "integer",
+                    "example": 15
+                  },
+                  "rows": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "id": {
+                          "type": "integer",
+                          "example": 1
+                        },
+                        "name": {
+                          "type": "string",
+                          "example": "Comunidade Xyz"
+                        },
+                        "siteCode": {
+                          "type": "string",
+                          "example": "654654Z"
+                        },
+                        "city": {
+                          "type": "string",
+                          "example": "Belo Horizonte"
+                        },
+                        "state": {
+                          "type": "string",
+                          "example": "MG"
+                        },
+                        "createdAt": {
+                          "type": "object",
+                          "example": "2020-10-08T10:54:04.401Z"
+                        },
+                        "modifiedAt": {
+                          "type": "object",
+                          "example": "2020-10-08T10:54:04.401Z"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "parameters": [
+        {
+          "in": "query",
+          "name": "query",
+          "schema": {
+            "type": "string"
+          },
+          "description": "A name part or the full name of site"
+        },
+        {
+          "in": "query",
+          "name": "limit",
+          "schema": {
+            "type": "integer"
+          },
+          "description": "The number of items returned in the search"
+        },
+        {
+          "in": "query",
+          "name": "offset",
+          "schema": {
+            "type": "integer"
+          },
+          "description": "The number of items to skip"
+        }
+      ]
+    }
+  },
+  "/mentors/{userId}": {
+    "get": {
+      "tags": [
+        "Mentors"
+      ],
+      "description": "Get a mentor",
+      "responses": {
+        "200": {
+          "description": "Listed",
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "userId": {
+                    "type": "integer",
+                    "example": 1
+                  },
+                  "name": {
+                    "type": "string",
+                    "example": "Alice"
+                  },
+                  "username": {
+                    "type": "string",
+                    "example": "alice@contoso.com"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "404": {
+          "description": "Not found"
+        }
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "userId",
+          "required": true,
+          "description": "Mentor's Id",
+          "schema": {
+            "type": "number"
+          }
+        }
+      ]
+    },
+    "delete": {
+      "tags": [
+        "Mentors"
+      ],
+      "description": "Delete a mentors",
+      "responses": {
+        "200": {
+          "description": "Deleted"
+        }
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "userId",
+          "required": true,
+          "description": "Mentor's Id",
+          "schema": {
+            "type": "number"
+          }
+        }
+      ]
+    },
+    "patch": {
+      "tags": [
+        "Mentors"
+      ],
+      "description": "Insert a mentor",
+      "responses": {
+        "200": {
+          "description": "Updated"
+        }
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "userId",
+          "required": true,
+          "description": "Mentor's User Id",
+          "schema": {
+            "type": "number"
+          }
+        }
+      ],
+      "requestBody": {
+        "required": true,
+        "description": "Request body",
+        "content": {
+          "application/json": {
+            "schema": {
+              "type": "object",
+              "properties": {
+                "name": {
+                  "type": "string",
+                  "example": "Alice"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "/mentors": {
+    "post": {
+      "tags": [
+        "Mentors"
+      ],
+      "description": "Insert a mentor",
+      "responses": {
+        "201": {
+          "description": "Created"
+        }
+      },
+      "requestBody": {
+        "required": true,
+        "description": "Request body",
+        "content": {
+          "application/json": {
+            "schema": {
+              "type": "object",
+              "required": [
+                "email",
+                "name"
+              ],
+              "properties": {
+                "email": {
+                  "type": "string",
+                  "example": "alice@contoso.com",
+                  "format": "email"
+                },
+                "name": {
+                  "type": "string",
+                  "example": "Alice"
+                },
+                "password": {
+                  "type": "string",
+                  "minLength": 8,
+                  "example": "12345678"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "get": {
+      "tags": [
+        "Mentors"
+      ],
+      "description": "List all mentors",
+      "responses": {
+        "200": {
+          "description": "Listed",
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "query": {
+                    "type": "string",
+                    "example": "Alice"
+                  },
+                  "limit": {
+                    "type": "integer",
+                    "example": 10
+                  },
+                  "offset": {
+                    "type": "integer",
+                    "example": 0
+                  },
+                  "total": {
+                    "type": "integer",
+                    "example": 15
+                  },
+                  "rows": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "userId": {
+                          "type": "integer",
+                          "example": 1
+                        },
+                        "name": {
+                          "type": "string",
+                          "example": "Alice"
+                        },
+                        "username": {
+                          "type": "string",
+                          "example": "alice@contoso.com"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "parameters": [
+        {
+          "in": "query",
+          "name": "query",
+          "description": "Term to query mentor's name",
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "in": "query",
+          "name": "limit",
+          "description": "Result limit",
+          "schema": {
+            "type": "number"
+          }
+        },
+        {
+          "in": "query",
+          "name": "offset",
+          "description": "Result offset",
+          "schema": {
+            "type": "number"
+          }
+        }
+      ]
+    }
+  },
+  "/students/{id}": {
+    "get": {
+      "tags": [
+        "Students"
+      ],
+      "description": "Get a student",
+      "responses": {
+        "200": {
+          "description": "Listed",
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "integer",
+                    "example": 1
+                  },
+                  "userId": {
+                    "type": "integer",
+                    "example": 1
+                  },
+                  "gradeId": {
+                    "type": "integer",
+                    "example": 1
+                  },
+                  "isPublicSchool": {
+                    "type": "integer",
+                    "example": true
+                  },
+                  "schoolName": {
+                    "type": "string",
+                    "example": "EM Nossa Senhora Aparecida"
+                  },
+                  "state": {
+                    "type": "string",
+                    "example": "MG"
+                  },
+                  "city": {
+                    "type": "string",
+                    "example": "Belo Horizonte"
+                  },
+                  "name": {
+                    "type": "string",
+                    "example": "Alice"
+                  },
+                  "cpf": {
+                    "type": "string",
+                    "nullable": true,
+                    "example": "12345678909"
+                  },
+                  "siteId": {
+                    "type": "integer",
+                    "example": 1
+                  },
+                  "createdAt": {
+                    "type": "object",
+                    "example": "2000-12-25T00:00:00.000Z"
+                  },
+                  "modifiedAt": {
+                    "type": "object",
+                    "example": "2000-12-25T00:00:00.000Z"
+                  },
+                  "username": {
+                    "type": "string",
+                    "example": "alice@contoso.com"
+                  },
+                  "birthDate": {
+                    "type": "object",
+                    "format": "date-time",
+                    "example": "2000-12-25T00:00:00.000Z"
+                  },
+                  "gender": {
+                    "type": "string",
+                    "example": "F"
+                  },
+                  "classTypes": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "id": {
+                          "type": "integer",
+                          "example": 1
+                        },
+                        "name": {
+                          "type": "string",
+                          "example": "Empreendedorismo"
+                        }
+                      }
+                    }
+                  },
+                  "subjects": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "id": {
+                          "type": "integer",
+                          "example": 1
+                        },
+                        "name": {
+                          "type": "string",
+                          "example": "Teatro"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "404": {
+          "description": "Not found"
+        }
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "required": true,
+          "description": "Student's User Id",
+          "schema": {
+            "type": "string"
+          }
+        }
+      ]
+    },
+    "delete": {
+      "tags": [
+        "Students"
+      ],
+      "description": "Delete a students",
+      "responses": {
+        "204": {
+          "description": "Deleted"
+        }
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "required": true,
+          "description": "Student's Id",
+          "schema": {
+            "type": "string"
+          }
+        }
+      ]
+    },
+    "patch": {
+      "tags": [
+        "Students"
+      ],
+      "description": "Insert a student",
+      "responses": {
+        "200": {
+          "description": "Result"
+        }
+      },
+      "requestBody": {
+        "required": true,
+        "description": "Request body",
+        "content": {
+          "application/json": {
+            "schema": {
+              "type": "object",
+              "properties": {
+                "city": {
+                  "type": "string",
+                  "example": "Belo Horizonte"
+                },
+                "password": {
+                  "type": "string",
+                  "minimum": 8,
+                  "example": "12345678"
+                },
+                "name": {
+                  "type": "string",
+                  "example": "Alice"
+                },
+                "state": {
+                  "type": "string",
+                  "example": "MG"
+                },
+                "gradeId": {
+                  "type": "number",
+                  "enum": [
+                    1,
+                    2,
+                    3,
+                    11,
+                    12,
+                    13,
+                    14,
+                    15,
+                    16,
+                    17,
+                    18,
+                    19,
+                    99
+                  ]
+                },
+                "isPublicSchool": {
+                  "type": "boolean",
+                  "example": true
+                },
+                "schoolName": {
+                  "type": "string",
+                  "example": "EM Nossa Senhora Aparecida"
+                },
+                "siteId": {
+                  "type": "number",
+                  "example": 36
+                },
+                "classTypes": {
+                  "type": "array",
+                  "items": {
+                    "type": "number"
+                  },
+                  "example": [
+                    49
+                  ]
+                },
+                "subjects": {
+                  "type": "array",
+                  "items": {
+                    "type": "number"
+                  },
+                  "example": [
+                    4
+                  ]
+                }
+              }
+            }
+          }
+        }
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "required": true,
+          "description": "Student's Id",
+          "schema": {
+            "type": "string"
+          }
+        }
+      ]
+    }
+  },
+  "/students": {
+    "post": {
+      "tags": [
+        "Students"
+      ],
+      "description": "Insert a student",
+      "responses": {
+        "200": {
+          "description": "the login info of registered student",
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      },
+      "requestBody": {
+        "required": true,
+        "description": "Request body",
+        "content": {
+          "application/json": {
+            "schema": {
+              "type": "object",
+              "required": [
+                "city",
+                "email",
+                "name",
+                "state",
+                "gradeId",
+                "isPublicSchool",
+                "schoolName",
+                "birthDate",
+                "gender"
+              ],
+              "properties": {
+                "city": {
+                  "type": "string",
+                  "example": "Belo Horizonte"
+                },
+                "cpf": {
+                  "type": "string",
+                  "example": "12345678909"
+                },
+                "email": {
+                  "type": "string",
+                  "example": "alice@contoso.com",
+                  "format": "email"
+                },
+                "name": {
+                  "type": "string",
+                  "example": "Alice"
+                },
+                "state": {
+                  "type": "string",
+                  "example": "MG"
+                },
+                "gradeId": {
+                  "type": "number",
+                  "enum": [
+                    1,
+                    2,
+                    3,
+                    11,
+                    12,
+                    13,
+                    14,
+                    15,
+                    16,
+                    17,
+                    18,
+                    19,
+                    99
+                  ]
+                },
+                "isPublicSchool": {
+                  "type": "boolean",
+                  "example": true
+                },
+                "schoolName": {
+                  "type": "string",
+                  "example": "EM Nossa Senhora Aparecida"
+                },
+                "birthDate": {
+                  "type": "string",
+                  "format": "date-time",
+                  "example": "2000-12-25T00:00:00.000Z"
+                },
+                "gender": {
+                  "type": "string",
+                  "example": "F"
+                },
+                "siteId": {
+                  "type": "integer",
+                  "example": 98
+                },
+                "classTypes": {
+                  "type": "array",
+                  "items": {
+                    "type": "integer"
+                  },
+                  "example": [
+                    3
+                  ]
+                },
+                "subjects": {
+                  "type": "array",
+                  "items": {
+                    "type": "integer"
+                  },
+                  "example": [
+                    45
+                  ]
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "get": {
+      "tags": [
+        "Students"
+      ],
+      "description": "List all students",
+      "responses": {
+        "200": {
+          "description": "Listed",
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "query": {
+                    "type": "string",
+                    "example": "Alice"
+                  },
+                  "limit": {
+                    "type": "integer",
+                    "example": 10
+                  },
+                  "offset": {
+                    "type": "integer",
+                    "example": 0
+                  },
+                  "total": {
+                    "type": "integer",
+                    "example": 15
+                  },
+                  "rows": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "id": {
+                          "type": "integer",
+                          "example": 1
+                        },
+                        "userId": {
+                          "type": "integer",
+                          "example": 1
+                        },
+                        "gradeId": {
+                          "type": "integer",
+                          "example": 1
+                        },
+                        "isPublicSchool": {
+                          "type": "integer",
+                          "example": 1
+                        },
+                        "schoolName": {
+                          "type": "string",
+                          "example": "EM Nossa Senhora Aparecida"
+                        },
+                        "state": {
+                          "type": "string",
+                          "example": "MG"
+                        },
+                        "city": {
+                          "type": "string",
+                          "example": "Belo Horizonte"
+                        },
+                        "name": {
+                          "type": "string",
+                          "example": "Alice"
+                        },
+                        "cpf": {
+                          "type": "string",
+                          "nullable": true,
+                          "example": "12345678909"
+                        },
+                        "siteId": {
+                          "type": "integer",
+                          "example": 1
+                        },
+                        "createdAt": {
+                          "type": "object",
+                          "example": "2000-12-25T00:00:00.000Z"
+                        },
+                        "modifiedAt": {
+                          "type": "object",
+                          "example": "2000-12-25T00:00:00.000Z"
+                        },
+                        "username": {
+                          "type": "string",
+                          "example": "alice@contoso.com"
+                        },
+                        "birthDate": {
+                          "type": "object",
+                          "format": "date-time",
+                          "example": "2000-12-25T00:00:00.000Z"
+                        },
+                        "gender": {
+                          "type": "string",
+                          "example": "F"
+                        },
+                        "classTypes": {
+                          "type": "array",
+                          "items": {
+                            "type": "object",
+                            "properties": {
+                              "id": {
+                                "type": "integer",
+                                "example": 3
+                              },
+                              "name": {
+                                "type": "string",
+                                "example": "Empreendedorismo"
+                              }
+                            }
+                          }
+                        },
+                        "subjects": {
+                          "type": "array",
+                          "items": {
+                            "type": "object",
+                            "properties": {
+                              "id": {
+                                "type": "integer",
+                                "example": 1
+                              },
+                              "name": {
+                                "type": "string",
+                                "example": "Matemática"
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "parameters": [
+        {
+          "in": "query",
+          "name": "query",
+          "description": "Term to query student's name",
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "in": "query",
+          "name": "limit",
+          "description": "Result limit",
+          "schema": {
+            "type": "number"
+          }
+        },
+        {
+          "in": "query",
+          "name": "offset",
+          "description": "Result offset",
+          "schema": {
+            "type": "number"
+          }
+        }
+      ]
+    }
+  },
+  "/students/register": {
+    "post": {
+      "tags": [
+        "Students"
+      ],
+      "description": "Insert a student",
+      "security": [],
+      "responses": {
+        "200": {
+          "description": "the login info of registered student",
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      },
+      "requestBody": {
+        "required": true,
+        "description": "Request body",
+        "content": {
+          "application/json": {
+            "schema": {
+              "type": "object",
+              "required": [
+                "city",
+                "email",
+                "name",
+                "password",
+                "state",
+                "gradeId",
+                "isPublicSchool",
+                "schoolName",
+                "birthDate",
+                "gender"
+              ],
+              "properties": {
+                "city": {
+                  "type": "string",
+                  "example": "Belo Horizonte"
+                },
+                "cpf": {
+                  "type": "string",
+                  "example": "12345678909"
+                },
+                "email": {
+                  "type": "string",
+                  "example": "alice@contoso.com",
+                  "format": "email"
+                },
+                "name": {
+                  "type": "string",
+                  "example": "Alice"
+                },
+                "password": {
+                  "type": "string",
+                  "minLength": 8,
+                  "example": "12345678"
+                },
+                "state": {
+                  "type": "string",
+                  "example": "MG"
+                },
+                "gradeId": {
+                  "type": "number",
+                  "enum": [
+                    1,
+                    2,
+                    3,
+                    11,
+                    12,
+                    13,
+                    14,
+                    15,
+                    16,
+                    17,
+                    18,
+                    19,
+                    99
+                  ]
+                },
+                "isPublicSchool": {
+                  "type": "boolean",
+                  "example": true
+                },
+                "schoolName": {
+                  "type": "string",
+                  "example": "EM Nossa Senhora Aparecida"
+                },
+                "birthDate": {
+                  "type": "string",
+                  "format": "date-time",
+                  "example": "2000-12-25T00:00:00.000Z"
+                },
+                "gender": {
+                  "type": "string",
+                  "example": "M"
+                },
+                "siteId": {
+                  "type": "number",
+                  "example": 98
+                },
+                "classTypes": {
+                  "type": "array",
+                  "items": {
+                    "type": "integer"
+                  },
+                  "example": [
+                    3
+                  ]
+                },
+                "subjects": {
+                  "type": "array",
+                  "items": {
+                    "type": "integer"
+                  },
+                  "example": [
+                    45
+                  ]
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "/subjects/{id}": {
+    "get": {
+      "tags": [
+        "Subjects"
+      ],
+      "description": "Get a subject",
+      "responses": {
+        "200": {
+          "description": "Listed",
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "integer",
+                    "example": 1
+                  },
+                  "name": {
+                    "type": "string",
+                    "example": "Matemática"
+                  },
+                  "color": {
+                    "type": "string",
+                    "example": "#000000"
+                  },
+                  "description": {
+                    "type": "string",
+                    "nullable": true,
+                    "example": "Assunto de matemática"
+                  },
+                  "siteId": {
+                    "type": "integer",
+                    "nullable": true,
+                    "example": null
+                  },
+                  "classTypeId": {
+                    "type": "integer",
+                    "example": 1
+                  }
+                }
+              }
+            }
+          }
+        },
+        "404": {
+          "description": "Not found"
+        }
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "required": true,
+          "description": "Subject's Id",
+          "schema": {
+            "type": "string"
+          }
+        }
+      ]
+    },
+    "delete": {
+      "tags": [
+        "Subjects"
+      ],
+      "description": "Delete a subjects",
+      "responses": {
+        "204": {
+          "description": "Deleted"
+        }
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "required": true,
+          "description": "Subject's Id",
+          "schema": {
+            "type": "string"
+          }
+        }
+      ]
+    },
+    "patch": {
+      "tags": [
+        "Subjects"
+      ],
+      "description": "Insert a subject",
+      "responses": {
+        "204": {
+          "description": "Updated"
+        }
+      },
+      "requestBody": {
+        "required": true,
+        "description": "Request body",
+        "content": {
+          "application/json": {
+            "schema": {
+              "type": "object",
+              "properties": {
+                "name": {
+                  "type": "string",
+                  "example": "Matemática"
+                },
+                "color": {
+                  "type": "string",
+                  "example": "#A3B393"
+                },
+                "description": {
+                  "type": "string",
+                  "example": "Assunto de matemática"
+                }
+              }
+            }
+          }
+        }
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "required": true,
+          "description": "Subject's Id",
+          "schema": {
+            "type": "string"
+          }
+        }
+      ]
+    }
+  },
+  "/subjects": {
+    "post": {
+      "tags": [
+        "Subjects"
+      ],
+      "description": "Insert a subject",
+      "responses": {
+        "201": {
+          "description": "Created"
+        }
+      },
+      "requestBody": {
+        "required": true,
+        "description": "Request body",
+        "content": {
+          "application/json": {
+            "schema": {
+              "type": "object",
+              "required": [
+                "name",
+                "color",
+                "classTypeId"
+              ],
+              "properties": {
+                "name": {
+                  "type": "string",
+                  "example": "Matemática"
+                },
+                "color": {
+                  "type": "string",
+                  "example": "#000000"
+                },
+                "description": {
+                  "type": "string",
+                  "example": "Assunto de matemática"
+                },
+                "siteId": {
+                  "type": "integer",
+                  "nullable": true,
+                  "example": null
+                },
+                "classTypeId": {
+                  "type": "integer",
+                  "example": 1
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "get": {
+      "tags": [
+        "Subjects"
+      ],
+      "description": "List all subjects",
+      "security": [],
+      "responses": {
+        "200": {
+          "description": "Listed",
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "limit": {
+                    "type": "integer",
+                    "example": 10
+                  },
+                  "offset": {
+                    "type": "integer",
+                    "example": 0
+                  },
+                  "filter": {
+                    "type": "object",
+                    "properties": {
+                      "query": {
+                        "type": "string",
+                        "example": "Curso"
+                      },
+                      "classTypeId": {
+                        "type": "integer",
+                        "example": 1
+                      },
+                      "siteIds": {
+                        "type": "array",
+                        "items": {
+                          "type": "integer"
+                        },
+                        "example": -1
+                      }
+                    }
+                  },
+                  "total": {
+                    "type": "integer",
+                    "example": 15
+                  },
+                  "rows": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "id": {
+                          "type": "integer",
+                          "example": 1
+                        },
+                        "name": {
+                          "type": "string",
+                          "example": "Matemática"
+                        },
+                        "color": {
+                          "type": "string",
+                          "example": "#000000"
+                        },
+                        "description": {
+                          "type": "string",
+                          "nullable": true,
+                          "example": "Assunto de matemática"
+                        },
+                        "siteId": {
+                          "type": "integer",
+                          "nullable": true,
+                          "example": null
+                        },
+                        "classTypeId": {
+                          "type": "integer",
+                          "example": 1
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "parameters": [
+        {
+          "in": "query",
+          "name": "query",
+          "description": "Term to query subject's name",
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "in": "query",
+          "name": "classTypeId",
+          "description": "ClassType Id",
+          "schema": {
+            "type": "integer"
+          }
+        },
+        {
+          "name": "siteIds",
+          "in": "query",
+          "description": "List by site id",
+          "style": "spaceDelimited",
+          "explode": true,
+          "schema": {
+            "type": "array",
+            "items": {
+              "type": "integer"
+            }
+          }
+        },
+        {
+          "in": "query",
+          "name": "limit",
+          "description": "Result limit",
+          "schema": {
+            "type": "number"
+          }
+        },
+        {
+          "in": "query",
+          "name": "offset",
+          "description": "Result offset",
+          "schema": {
+            "type": "number"
+          }
+        }
+      ]
+    }
+  },
+  "/classes/{id}/approve": {
+    "patch": {
+      "tags": [
+        "Classes"
+      ],
+      "description": "Approve a Class",
+      "responses": {
+        "204": {
+          "description": "Approved"
+        }
+      },
+      "parameters": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true,
+          "description": "Class Id",
+          "schema": {
+            "type": "number"
+          }
+        },
+        {
+          "name": "userid",
+          "in": "query",
+          "required": true,
+          "description": "User id",
+          "schema": {
+            "type": "number"
+          }
+        }
+      ]
+    }
+  },
+  "/classes/{id}": {
+    "get": {
+      "tags": [
+        "Classes"
+      ],
+      "description": "Get a class",
+      "responses": {
+        "200": {
+          "description": "Listed",
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "integer",
+                    "example": 1
+                  },
+                  "title": {
+                    "type": "string",
+                    "example": "Aula Xyz"
+                  },
+                  "gradeId": {
+                    "type": "integer",
+                    "example": 1
+                  },
+                  "classType": {
+                    "type": "integer",
+                    "example": 1
+                  },
+                  "themeId": {
+                    "type": "integer",
+                    "example": 1
+                  },
+                  "themeName": {
+                    "type": "string",
+                    "example": "Programação"
+                  },
+                  "workshopId": {
+                    "type": "integer",
+                    "example": 1
+                  },
+                  "workshopName": {
+                    "type": "string",
+                    "example": "Fazer bolo"
+                  },
+                  "teacher": {
+                    "type": "object",
+                    "properties": {
+                      "id": {
+                        "type": "integer",
+                        "example": 1
+                      },
+                      "userId": {
+                        "type": "integer",
+                        "example": 1
+                      },
+                      "name": {
+                        "type": "string",
+                        "example": "Alice"
+                      }
+                    }
+                  },
+                  "subject": {
+                    "type": "object",
+                    "properties": {
+                      "id": {
+                        "type": "integer",
+                        "example": 1
+                      },
+                      "name": {
+                        "type": "string",
+                        "example": "Matemática"
+                      }
+                    }
+                  },
+                  "contents": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "id": {
+                          "type": "integer",
+                          "example": 1
+                        },
+                        "description": {
+                          "type": "string",
+                          "example": "Como funciona a gravidade"
+                        },
+                        "url": {
+                          "type": "string",
+                          "format": "url",
+                          "example": "https://edition.cnn.com/2019/06/23/europe/turkey-istanbul-mayor-election-intl/index.html"
+                        },
+                        "thumbnail": {
+                          "type": "string",
+                          "format": "url",
+                          "example": "https://cdn.cnn.com/cnnnext/dam/assets/190623172519-turkey-ekrem-imamoglu-super-tease.jpg"
+                        },
+                        "type": {
+                          "type": "string",
+                          "example": "link"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "parameters": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true,
+          "description": "The",
+          "schema": {
+            "type": "string"
+          }
+        }
+      ]
+    },
+    "delete": {
+      "tags": [
+        "Classes"
+      ],
+      "description": "Delete a classes",
+      "responses": {
+        "204": {
+          "description": "Deleted"
+        }
+      },
+      "parameters": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true,
+          "description": "Id",
+          "schema": {
+            "type": "string"
+          }
+        }
+      ]
+    }
+  },
+  "/classes": {
+    "post": {
+      "tags": [
+        "Classes"
+      ],
+      "description": "Insert a class",
+      "responses": {
+        "201": {
+          "description": "Result"
+        }
+      },
+      "requestBody": {
+        "required": true,
+        "description": "Request body",
+        "content": {
+          "application/json": {
+            "schema": {
+              "type": "object",
+              "required": [
+                "title",
+                "contents",
+                "subjectIds"
+              ],
+              "properties": {
+                "title": {
+                  "type": "string",
+                  "example": "Aula Xyz"
+                },
+                "contents": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "required": [
+                      "description",
+                      "thumbnail",
+                      "type",
+                      "url",
+                      "isMain"
+                    ],
+                    "properties": {
+                      "description": {
+                        "type": "string",
+                        "example": "Como funciona a gravidade"
+                      },
+                      "thumbnail": {
+                        "type": "string",
+                        "format": "url",
+                        "example": "https://cdn.cnn.com/cnnnext/dam/assets/190623172519-turkey-ekrem-imamoglu-super-tease.jpg"
+                      },
+                      "type": {
+                        "type": "string",
+                        "example": "link"
+                      },
+                      "url": {
+                        "type": "string",
+                        "format": "url",
+                        "example": "https://edition.cnn.com/2019/06/23/europe/turkey-istanbul-mayor-election-intl/index.html"
+                      },
+                      "isMain": {
+                        "type": "integer",
+                        "example": 1
+                      }
+                    }
+                  }
+                },
+                "gradeId": {
+                  "type": "integer",
+                  "nullable": true,
+                  "example": 1
+                },
+                "subjectIds": {
+                  "type": "array",
+                  "items": {
+                    "type": "integer"
+                  },
+                  "example": [
+                    1
+                  ]
+                },
+                "tagsId": {
+                  "type": "array",
+                  "items": {
+                    "type": "integer"
+                  },
+                  "example": [
+                    1
+                  ]
+                },
+                "classes": {
+                  "type": "array",
+                  "items": {
+                    "type": "integer"
+                  },
+                  "example": [
+                    1
+                  ]
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "get": {
+      "tags": [
+        "Classes"
+      ],
+      "description": "List all classes",
+      "responses": {
+        "200": {
+          "description": "Listed",
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "limit": {
+                    "type": "integer",
+                    "example": 10
+                  },
+                  "offset": {
+                    "type": "integer",
+                    "example": 0
+                  },
+                  "filter": {
+                    "type": "object",
+                    "properties": {
+                      "subjectIds": {
+                        "type": "array",
+                        "items": {
+                          "type": "integer"
+                        },
+                        "example": -1
+                      },
+                      "keyword": {
+                        "type": "string",
+                        "example": "Aula Xyz"
+                      },
+                      "classIds": {
+                        "type": "array",
+                        "items": {
+                          "type": "integer"
+                        },
+                        "example": -1
+                      }
+                    }
+                  },
+                  "total": {
+                    "type": "integer",
+                    "example": 15
+                  },
+                  "rows": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "id": {
+                          "type": "integer",
+                          "example": 1
+                        },
+                        "title": {
+                          "type": "string",
+                          "example": "Aula Xyz"
+                        },
+                        "description": {
+                          "type": "string",
+                          "nullable": true,
+                          "example": "Descrição da aula xyz"
+                        },
+                        "classType": {
+                          "type": "string",
+                          "example": "Reforço escolar"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "parameters": [
+        {
+          "name": "classIds",
+          "in": "query",
+          "description": "List by class id",
+          "style": "spaceDelimited",
+          "explode": true,
+          "schema": {
+            "type": "array",
+            "items": {
+              "type": "integer"
+            }
+          }
+        },
+        {
+          "name": "subjectIds",
+          "in": "query",
+          "description": "List by subject id",
+          "style": "spaceDelimited",
+          "explode": true,
+          "schema": {
+            "type": "array",
+            "items": {
+              "type": "integer"
+            },
+            "example": [
+              1
+            ]
+          }
+        },
+        {
+          "name": "keyword",
+          "in": "query",
+          "description": "Search by keyword",
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "limit",
+          "in": "query",
+          "description": "Result limit",
+          "schema": {
+            "type": "number"
+          }
+        },
+        {
+          "name": "offset",
+          "in": "query",
+          "description": "Result offset",
+          "schema": {
+            "type": "number"
+          }
+        }
+      ]
+    }
+  },
+  "/classes/contents": {
+    "get": {
+      "tags": [
+        "Classes"
+      ],
+      "description": "List all that contain content",
+      "responses": {
+        "200": {
+          "description": "Listed",
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "limit": {
+                    "type": "integer",
+                    "example": 10
+                  },
+                  "offset": {
+                    "type": "integer",
+                    "example": 0
+                  },
+                  "filter": {
+                    "type": "object",
+                    "properties": {
+                      "classIds": {
+                        "type": "array",
+                        "items": {
+                          "type": "integer"
+                        },
+                        "example": null
+                      },
+                      "keyword": {
+                        "type": "string",
+                        "example": "Aula Xyz"
+                      },
+                      "subjects": {
+                        "type": "array",
+                        "items": {
+                          "type": "integer"
+                        }
+                      },
+                      "classType": {
+                        "type": "integer",
+                        "example": 1
+                      }
+                    }
+                  },
+                  "total": {
+                    "type": "integer",
+                    "example": 15
+                  },
+                  "rows": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "id": {
+                          "type": "integer",
+                          "example": 1
+                        },
+                        "gradeId": {
+                          "type": "integer",
+                          "nullable": true,
+                          "example": 1
+                        },
+                        "classType": {
+                          "type": "integer",
+                          "example": 1
+                        },
+                        "title": {
+                          "type": "string",
+                          "example": "Aula xyz"
+                        },
+                        "teacher": {
+                          "type": "object",
+                          "properties": {
+                            "id": {
+                              "type": "integer",
+                              "example": 1,
+                              "nullable": true
+                            },
+                            "userId": {
+                              "type": "integer",
+                              "example": 1,
+                              "nullable": true
+                            },
+                            "name": {
+                              "type": "string",
+                              "example": "Alice",
+                              "nullable": true
+                            }
+                          }
+                        },
+                        "subjects": {
+                          "type": "array",
+                          "items": {
+                            "type": "object",
+                            "properties": {
+                              "id": {
+                                "type": "integer",
+                                "example": 1
+                              },
+                              "name": {
+                                "type": "string",
+                                "example": "Matemática"
+                              },
+                              "color": {
+                                "type": "string",
+                                "example": "#191919"
+                              },
+                              "description": {
+                                "type": "string",
+                                "nullable": true,
+                                "example": "Aula de matemática"
+                              }
+                            }
+                          }
+                        },
+                        "contents": {
+                          "type": "array",
+                          "items": {
+                            "type": "object",
+                            "properties": {
+                              "id": {
+                                "type": "integer",
+                                "example": 1
+                              },
+                              "description": {
+                                "type": "string",
+                                "example": "Como funciona a gravidade"
+                              },
+                              "url": {
+                                "type": "string",
+                                "format": "url",
+                                "example": "https://cdn.cnn.com/cnnnext/dam/assets/190623172519-turkey-ekrem-imamoglu-super-tease.jpg"
+                              },
+                              "thumbnail": {
+                                "type": "string",
+                                "format": "url",
+                                "nullable": true,
+                                "example": "https://edition.cnn.com/2019/06/23/europe/turkey-istanbul-mayor-election-intl/index.html"
+                              },
+                              "type": {
+                                "type": "string",
+                                "example": "link"
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "parameters": [
+        {
+          "name": "classIds",
+          "in": "query",
+          "description": "List by class id",
+          "style": "spaceDelimited",
+          "explode": true,
+          "schema": {
+            "type": "array",
+            "items": {
+              "type": "integer"
+            }
+          }
+        },
+        {
+          "name": "keyword",
+          "in": "query",
+          "description": "A part of title",
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "subjects",
+          "in": "query",
+          "description": "List by subject id",
+          "style": "spaceDelimited",
+          "explode": true,
+          "schema": {
+            "type": "array",
+            "items": {
+              "type": "integer"
+            },
+            "example": [
+              1
+            ]
+          }
+        },
+        {
+          "name": "byGrade",
+          "in": "query",
+          "description": "List by student grade",
+          "schema": {
+            "type": "boolean",
+            "example": true
+          }
+        },
+        {
+          "name": "limit",
+          "in": "query",
+          "description": "Limit of results",
+          "schema": {
+            "type": "integer"
+          },
+          "example": 10
+        },
+        {
+          "name": "offset",
+          "in": "query",
+          "description": "Page number",
+          "schema": {
+            "type": "integer"
+          },
+          "example": 0
+        }
+      ]
+    }
+  },
+  "/teachers/{id}": {
+    "get": {
+      "tags": [
+        "Teachers"
+      ],
+      "description": "Get a teacher",
+      "responses": {
+        "200": {
+          "description": "Listed",
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "integer",
+                    "example": 1
+                  },
+                  "userId": {
+                    "type": "integer",
+                    "example": 1
+                  },
+                  "name": {
+                    "type": "string",
+                    "example": "Alice"
+                  },
+                  "siteId": {
+                    "nullable": true,
+                    "type": "integer",
+                    "example": 1
+                  },
+                  "graduationYear": {
+                    "type": "integer",
+                    "example": 1
+                  },
+                  "graduationUniversityName": {
+                    "type": "string",
+                    "example": "Puc Minas"
+                  },
+                  "workSchoolName": {
+                    "nullable": true,
+                    "type": "string",
+                    "example": "Escola Municipal Nossa Senhora Aparecida"
+                  },
+                  "state": {
+                    "type": "string",
+                    "example": "MG"
+                  },
+                  "city": {
+                    "type": "string",
+                    "example": "Belo Horizonte"
+                  },
+                  "cpf": {
+                    "type": "string",
+                    "example": "0123456790"
+                  },
+                  "ddd": {
+                    "type": "string",
+                    "nullable": true,
+                    "example": "11"
+                  },
+                  "telephone": {
+                    "type": "string",
+                    "nullable": true,
+                    "example": "3333-3333"
+                  },
+                  "enabled": {
+                    "type": "integer",
+                    "example": 1
+                  },
+                  "username": {
+                    "type": "string",
+                    "example": null
+                  },
+                  "subjects": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "id": {
+                          "type": "integer",
+                          "example": 1
+                        },
+                        "name": {
+                          "type": "string",
+                          "example": "Matemática"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "404": {
+          "description": "Not found"
+        }
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "required": true,
+          "description": "Teacher's Id",
+          "schema": {
+            "type": "string"
+          }
+        }
+      ]
+    },
+    "delete": {
+      "tags": [
+        "Teachers"
+      ],
+      "description": "Delete a teachers",
+      "responses": {
+        "204": {
+          "description": "Deleted"
+        }
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "required": true,
+          "description": "Teacher's Id",
+          "schema": {
+            "type": "string"
+          }
+        }
+      ]
+    },
+    "patch": {
+      "tags": [
+        "Teachers"
+      ],
+      "description": "Update a teacher",
+      "responses": {
+        "204": {
+          "description": "Result"
+        }
+      },
+      "requestBody": {
+        "required": true,
+        "description": "Request body",
+        "content": {
+          "application/json": {
+            "schema": {
+              "type": "object",
+              "properties": {
+                "name": {
+                  "type": "string",
+                  "example": "Alice"
+                },
+                "password": {
+                  "type": "string",
+                  "minLength": 8,
+                  "example": 0
+                },
+                "siteId": {
+                  "type": "number",
+                  "example": 36
+                },
+                "graduationYear": {
+                  "type": "number",
+                  "example": "1"
+                },
+                "graduationUniversityName": {
+                  "type": "string",
+                  "example": "Puc Minas"
+                },
+                "workSchoolName": {
+                  "type": "string",
+                  "example": "Escola Municipal Nossa Senhora Aparecida"
+                },
+                "state": {
+                  "type": "string",
+                  "example": "MG"
+                },
+                "city": {
+                  "type": "string",
+                  "example": "Belo Horizonte"
+                },
+                "ddd": {
+                  "type": "number",
+                  "example": "31"
+                },
+                "telephone": {
+                  "type": "string",
+                  "example": "3333-3333"
+                },
+                "subjects": {
+                  "type": "array",
+                  "items": {
+                    "type": "number"
+                  },
+                  "example": [
+                    1
+                  ]
+                },
+                "enabled": {
+                  "type": "boolean",
+                  "example": true
+                }
+              }
+            }
+          }
+        }
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "required": true,
+          "description": "Teacher's Id",
+          "schema": {
+            "type": "string"
+          }
+        }
+      ]
+    }
+  },
+  "/teachers": {
+    "post": {
+      "tags": [
+        "Teachers"
+      ],
+      "description": "Insert a teacher",
+      "responses": {
+        "201": {
+          "description": "Created"
+        }
+      },
+      "requestBody": {
+        "required": true,
+        "description": "Request body",
+        "content": {
+          "application/json": {
+            "schema": {
+              "type": "object",
+              "required": [
+                "name",
+                "email",
+                "graduationYear",
+                "graduationUniversityName",
+                "workSchoolName",
+                "state",
+                "city",
+                "cpf",
+                "ddd",
+                "telephone",
+                "enabled"
+              ],
+              "properties": {
+                "name": {
+                  "type": "string",
+                  "example": "Alice"
+                },
+                "email": {
+                  "type": "string",
+                  "example": "alice@contoso.com",
+                  "format": "email"
+                },
+                "siteId": {
+                  "type": "integer",
+                  "example": 36
+                },
+                "subjects": {
+                  "type": "array",
+                  "items": {
+                    "type": "integer"
+                  },
+                  "example": [
+                    1
+                  ]
+                },
+                "graduationYear": {
+                  "type": "integer",
+                  "example": 1
+                },
+                "graduationUniversityName": {
+                  "type": "string",
+                  "example": "Puc Minas"
+                },
+                "workSchoolName": {
+                  "type": "string",
+                  "example": "Escola Municipal Nossa Senhora Aparecida"
+                },
+                "state": {
+                  "type": "string",
+                  "example": "MG"
+                },
+                "city": {
+                  "type": "string",
+                  "example": "Belo Horizonte"
+                },
+                "cpf": {
+                  "type": "string",
+                  "example": "12345678909"
+                },
+                "ddd": {
+                  "type": "string",
+                  "example": "31"
+                },
+                "telephone": {
+                  "type": "string",
+                  "example": "3333-3333"
+                },
+                "enabled": {
+                  "type": "boolean",
+                  "example": true
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "get": {
+      "tags": [
+        "Teachers"
+      ],
+      "description": "List all teachers",
+      "responses": {
+        "200": {
+          "description": "Listed",
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "query": {
+                    "type": "string",
+                    "example": "Alice"
+                  },
+                  "limit": {
+                    "type": "integer",
+                    "example": 10
+                  },
+                  "offset": {
+                    "type": "integer",
+                    "example": 0
+                  },
+                  "total": {
+                    "type": "integer",
+                    "example": 15
+                  },
+                  "rows": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "id": {
+                          "type": "integer",
+                          "example": 1
+                        },
+                        "userId": {
+                          "type": "integer",
+                          "example": 1
+                        },
+                        "name": {
+                          "type": "string",
+                          "example": "Alice"
+                        },
+                        "siteId": {
+                          "type": "integer",
+                          "nullable": true,
+                          "example": 1
+                        },
+                        "graduationYear": {
+                          "type": "integer",
+                          "example": 1
+                        },
+                        "graduationUniversityName": {
+                          "type": "string",
+                          "example": "Puc Minas"
+                        },
+                        "workSchoolName": {
+                          "type": "string",
+                          "nullable": true,
+                          "example": "Escola Municipal Nossa Senhora Aparecida"
+                        },
+                        "state": {
+                          "type": "string",
+                          "example": "MG"
+                        },
+                        "city": {
+                          "type": "string",
+                          "example": "Belo Horizonte"
+                        },
+                        "cpf": {
+                          "type": "string",
+                          "example": "0123456790"
+                        },
+                        "ddd": {
+                          "type": "string",
+                          "nullable": true,
+                          "example": "11"
+                        },
+                        "telephone": {
+                          "type": "string",
+                          "nullable": true,
+                          "example": "3333-3333"
+                        },
+                        "enabled": {
+                          "type": "integer",
+                          "example": 1
+                        },
+                        "username": {
+                          "type": "string",
+                          "example": null
+                        },
+                        "subjects": {
+                          "type": "array",
+                          "items": {
+                            "type": "object",
+                            "properties": {
+                              "id": {
+                                "type": "integer",
+                                "example": 1
+                              },
+                              "name": {
+                                "type": "string",
+                                "example": "Matemática"
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "parameters": [
+        {
+          "in": "query",
+          "name": "query",
+          "required": false,
+          "description": "Term to query teacher's name",
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "in": "query",
+          "name": "limit",
+          "required": false,
+          "description": "Result limit",
+          "schema": {
+            "type": "number"
+          }
+        },
+        {
+          "in": "query",
+          "name": "offset",
+          "required": false,
+          "description": "Result offset",
+          "schema": {
+            "type": "number"
+          }
+        }
+      ]
+    }
+  },
+  "/teachers/register": {
+    "post": {
+      "tags": [
+        "Teachers"
+      ],
+      "description": "Insert a teacher",
+      "responses": {
+        "200": {
+          "description": "the login info of registered student",
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      },
+      "requestBody": {
+        "required": true,
+        "description": "Request body",
+        "content": {
+          "application/json": {
+            "schema": {
+              "type": "object",
+              "required": [
+                "name",
+                "email",
+                "password",
+                "graduationYear",
+                "graduationUniversityName",
+                "workSchoolName",
+                "state",
+                "city",
+                "cpf",
+                "ddd",
+                "telephone",
+                "enabled"
+              ],
+              "properties": {
+                "name": {
+                  "type": "string",
+                  "example": "Alice"
+                },
+                "email": {
+                  "type": "string",
+                  "example": "alice@contoso.com",
+                  "format": "email"
+                },
+                "password": {
+                  "type": "string",
+                  "minimum": 8,
+                  "example": "12345678"
+                },
+                "siteId": {
+                  "type": "integer",
+                  "example": 36
+                },
+                "subjects": {
+                  "type": "array",
+                  "items": {
+                    "type": "integer"
+                  },
+                  "example": [
+                    1
+                  ]
+                },
+                "graduationYear": {
+                  "type": "integer",
+                  "example": 1
+                },
+                "graduationUniversityName": {
+                  "type": "string",
+                  "example": "Puc Minas"
+                },
+                "workSchoolName": {
+                  "type": "string",
+                  "example": "Escola Municipal Nossa Senhora Aparecida"
+                },
+                "state": {
+                  "type": "string",
+                  "example": "MG"
+                },
+                "city": {
+                  "type": "string",
+                  "example": "Belo Horizonte"
+                },
+                "cpf": {
+                  "type": "string",
+                  "example": "12345678909"
+                },
+                "ddd": {
+                  "type": "string",
+                  "example": "31"
+                },
+                "telephone": {
+                  "type": "string",
+                  "example": "3333-3333"
+                },
+                "enabled": {
+                  "type": "boolean",
+                  "example": true
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "/user/changepassword": {
+    "post": {
+      "tags": [
+        "Users"
+      ],
+      "description": "Reset user's password",
+      "responses": {
+        "204": {
+          "description": "response"
+        }
+      },
+      "requestBody": {
+        "required": true,
+        "description": "Request body",
+        "content": {
+          "application/json": {
+            "schema": {
+              "type": "object",
+              "required": [
+                "username",
+                "currentPassword",
+                "newPassword"
+              ],
+              "properties": {
+                "username": {
+                  "type": "string",
+                  "example": "admingf@accenture.com"
+                },
+                "currentPassword": {
+                  "type": "string",
+                  "minLength": 8,
+                  "example": "12345678"
+                },
+                "newPassword": {
+                  "type": "string",
+                  "minLength": 8,
+                  "example": "87654321"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "/user/photo": {
+    "delete": {
+      "tags": [
+        "Users"
+      ],
+      "description": "Delete a user photo",
+      "responses": {
+        "204": {
+          "description": "The user photo has been deleted"
+        }
+      }
+    },
+    "get": {
+      "tags": [
+        "Users"
+      ],
+      "description": "Get a user photo",
+      "responses": {
+        "200": {
+          "description": "The user photo"
+        },
+        "404": {
+          "description": "The user does not has a photo"
+        }
+      }
+    },
+    "put": {
+      "tags": [
+        "Users"
+      ],
+      "description": "Put a user photo",
+      "responses": {
+        "201": {
+          "description": "The user photo inserted"
+        }
+      },
+      "requestBody": {
+        "required": true,
+        "description": "The user photo bytes",
+        "content": {
+          "application/octet-stream": {
+            "schema": {
+              "type": "string",
+              "format": "binary"
+            }
+          }
+        }
+      }
+    }
+  },
+  "/user/resetpassword": {
+    "post": {
+      "tags": [
+        "Users"
+      ],
+      "description": "Reset user's password",
+      "security": [],
+      "responses": {
+        "200": {
+          "description": "response",
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object"
+              }
+            }
+          }
+        }
+      },
+      "requestBody": {
+        "required": true,
+        "description": "Request body",
+        "content": {
+          "application/json": {
+            "schema": {
+              "type": "object",
+              "required": [
+                "email"
+              ],
+              "properties": {
+                "email": {
+                  "type": "string",
+                  "example": "admingf@accenture.com",
+                  "format": "email"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "/associates": {
+    "post": {
+      "tags": [
+        "Associates"
+      ],
+      "description": "Insert one associate",
+      "responses": {
+        "201": {
+          "description": "Created"
+        }
+      },
+      "requestBody": {
+        "required": true,
+        "description": "Request body",
+        "content": {
+          "multipart/form-data": {
+            "schema": {
+              "type": "object",
+              "required": [
+                "image",
+                "name",
+                "color",
+                "description",
+                "button",
+                "link"
+              ],
+              "properties": {
+                "image": {
+                  "type": "string",
+                  "format": "binary"
+                },
+                "name": {
+                  "type": "string"
+                },
+                "color": {
+                  "type": "string"
+                },
+                "description": {
+                  "type": "string"
+                },
+                "button": {
+                  "type": "string"
+                },
+                "link": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "get": {
+      "tags": [
+        "Associates"
+      ],
+      "description": "Get associates",
+      "responses": {
+        "200": {
+          "description": "Listed",
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "limit": {
+                    "type": "integer",
+                    "example": 10
+                  },
+                  "offset": {
+                    "type": "integer",
+                    "example": 0
+                  },
+                  "total": {
+                    "type": "integer",
+                    "example": 15
+                  },
+                  "rows": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "id": {
+                          "type": "integer",
+                          "example": 1
+                        },
+                        "name": {
+                          "type": "string",
+                          "example": "Me Salva!"
+                        },
+                        "color": {
+                          "type": "string",
+                          "example": "#191919"
+                        },
+                        "description": {
+                          "type": "string",
+                          "example": "Aulas de reforço escolar"
+                        },
+                        "buttonText": {
+                          "type": "string",
+                          "example": "Clique aqui!"
+                        },
+                        "imageLink": {
+                          "type": "string",
+                          "format": "url",
+                          "example": "http://link.com.br"
+                        },
+                        "link": {
+                          "type": "string",
+                          "format": "url",
+                          "example": "http://link.com.br"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "parameters": [
+        {
+          "in": "query",
+          "name": "limit",
+          "schema": {
+            "type": "integer"
+          },
+          "description": "The number of items returned in the search"
+        },
+        {
+          "in": "query",
+          "name": "offset",
+          "schema": {
+            "type": "integer"
+          },
+          "description": "The number of items to skip"
+        }
+      ]
+    }
+  },
+  "/associates/{id}": {
+    "get": {
+      "tags": [
+        "Associates"
+      ],
+      "description": "Get one associates",
+      "responses": {
+        "200": {
+          "description": "Listed",
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "integer",
+                    "example": 1
+                  },
+                  "name": {
+                    "type": "string",
+                    "example": "Comunidade Xyz"
+                  },
+                  "associatesCode": {
+                    "type": "string",
+                    "example": "654654Z"
+                  },
+                  "city": {
+                    "type": "string",
+                    "example": "Belo Horizonte"
+                  },
+                  "state": {
+                    "type": "string",
+                    "example": "MG"
+                  },
+                  "createdAt": {
+                    "type": "object",
+                    "example": "2020-10-08T10:54:04.401Z"
+                  },
+                  "modifiedAt": {
+                    "type": "object",
+                    "example": "2020-10-08T10:54:04.401Z"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "404": {
+          "description": "Not found"
+        }
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "required": true,
+          "description": "Id",
+          "schema": {
+            "type": "integer"
+          }
+        }
+      ]
+    },
+    "delete": {
+      "tags": [
+        "Associates"
+      ],
+      "description": "Delete a associate",
+      "responses": {
+        "204": {
+          "description": "Deleted"
+        }
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "required": true,
+          "description": "associate's id",
+          "schema": {
+            "type": "integer"
+          }
+        }
+      ]
+    },
+    "patch": {
+      "tags": [
+        "Associates"
+      ],
+      "description": "Update a associate",
+      "responses": {
+        "201": {
+          "description": "Updated"
+        }
+      },
+      "requestBody": {
+        "description": "Request body",
+        "content": {
+          "multipart/form-data": {
+            "schema": {
+              "type": "object",
+              "properties": {
+                "image": {
+                  "type": "string",
+                  "format": "binary"
+                },
+                "name": {
+                  "type": "string"
+                },
+                "color": {
+                  "type": "string"
+                },
+                "description": {
+                  "type": "string"
+                },
+                "button": {
+                  "type": "string"
+                },
+                "link": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      },
+      "parameters": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true,
+          "description": "Id",
+          "schema": {
+            "type": "number"
+          }
+        }
+      ]
+    }
+  },
+  "/utils/url/metadata": {
+    "get": {
+      "tags": [
+        "URL Metadata"
+      ],
+      "description": "Get",
+      "responses": {
+        "200": {
+          "description": "Listed",
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "url": {
+                    "type": "string",
+                    "example": "https://www.microsoft.com/pt-br/"
+                  },
+                  "canonical": {
+                    "type": "string",
+                    "example": "https://www.microsoft.com/pt-br"
+                  },
+                  "title": {
+                    "type": "string",
+                    "nullable": true,
+                    "example": "Microsoft - Official Home Page"
+                  },
+                  "image": {
+                    "type": "string",
+                    "example": ""
+                  },
+                  "author": {
+                    "type": "string",
+                    "example": ""
+                  },
+                  "description": {
+                    "type": "string",
+                    "example": "At Microsoft our mission and values are to help people and businesses throughout the world realize their full potential."
+                  },
+                  "keywords": {
+                    "type": "string",
+                    "example": ""
+                  },
+                  "source": {
+                    "type": "string",
+                    "example": "www.microsoft.com"
+                  },
+                  "og:url": {
+                    "type": "string",
+                    "example": "https://www.microsoft.com/pt-br"
+                  },
+                  "og:locale": {
+                    "type": "string",
+                    "example": ""
+                  },
+                  "og:locale:alternate": {
+                    "type": "string",
+                    "example": ""
+                  },
+                  "og:title": {
+                    "type": "string",
+                    "example": "Microsoft - Official Home Page"
+                  },
+                  "og:type": {
+                    "type": "string",
+                    "example": "website"
+                  },
+                  "og:description": {
+                    "type": "string",
+                    "example": "At Microsoft our mission and values are to help people and businesses throughout the world realize their full potential."
+                  },
+                  "og:determiner": {
+                    "type": "string",
+                    "example": ""
+                  },
+                  "og:siteName": {
+                    "type": "string",
+                    "example": ""
+                  },
+                  "og:image": {
+                    "type": "string",
+                    "example": ""
+                  },
+                  "og:image:secureUrl": {
+                    "type": "string",
+                    "example": ""
+                  },
+                  "og:image:type": {
+                    "type": "string",
+                    "example": ""
+                  },
+                  "og:image:width": {
+                    "type": "string",
+                    "example": ""
+                  },
+                  "og:image:height": {
+                    "type": "string",
+                    "example": ""
+                  },
+                  "price": {
+                    "type": "string",
+                    "example": ""
+                  },
+                  "priceCurrency": {
+                    "type": "string",
+                    "example": ""
+                  },
+                  "availability": {
+                    "type": "string",
+                    "example": ""
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "parameters": [
+        {
+          "in": "query",
+          "name": "url",
+          "required": true,
+          "description": "URL",
+          "allowReserved": true,
+          "schema": {
+            "type": "string",
+            "format": "url",
+            "example": "http://www.contoso.com"
+          }
+        }
+      ]
+    }
+  },
+  "/utils/accesses": {
+    "post": {
+      "tags": [
+        "Accesses"
+      ],
+      "description": "Insert",
+      "responses": {
+        "201": {
+          "description": "Created"
+        }
+      },
+      "requestBody": {
+        "required": true,
+        "description": "Request body",
+        "content": {
+          "application/json": {
+            "schema": {
+              "type": "object",
+              "properties": {
+                "userId": {
+                  "example": 1,
+                  "type": "number"
+                },
+                "screenName": {
+                  "example": "initial-screen",
+                  "type": "string"
+                },
+                "classId": {
+                  "example": 1,
+                  "type": "number"
+                },
+                "classType": {
+                  "example": "link",
+                  "type": "string"
+                },
+                "userName": {
+                  "example": "professor1@gerandofalcoes.com",
+                  "type": "string"
+                },
+                "roleId": {
+                  "example": 1,
+                  "type": "number"
+                },
+                "roleName": {
+                  "example": "teacher",
+                  "type": "string"
+                },
+                "env": {
+                  "example": "mobile",
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "get": {
+      "tags": [
+        "Accesses"
+      ],
+      "description": "List all",
+      "responses": {
+        "200": {
+          "description": "Listed",
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "query": {
+                    "type": "string",
+                    "example": "Alice"
+                  },
+                  "limit": {
+                    "type": "integer",
+                    "example": 10
+                  },
+                  "offset": {
+                    "type": "integer",
+                    "example": 0
+                  },
+                  "total": {
+                    "type": "integer",
+                    "example": 15
+                  },
+                  "rows": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "userId": {
+                          "type": "integer",
+                          "example": 1
+                        },
+                        "userName": {
+                          "type": "string",
+                          "example": "Alice"
+                        },
+                        "roleName": {
+                          "type": "string",
+                          "example": "student"
+                        },
+                        "screenName": {
+                          "type": "string",
+                          "example": "userLogin"
+                        },
+                        "env": {
+                          "type": "string",
+                          "example": "mobile"
+                        },
+                        "hitted": {
+                          "type": "object",
+                          "example": "2020-05-15T23:36:48.000Z"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "parameters": [
+        {
+          "in": "query",
+          "name": "query",
+          "required": false,
+          "description": "Term to query",
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "in": "query",
+          "name": "limit",
+          "required": false,
+          "description": "Result limit",
+          "schema": {
+            "type": "number"
+          }
+        },
+        {
+          "in": "query",
+          "name": "offset",
+          "required": false,
+          "description": "Result offset",
+          "schema": {
+            "type": "number"
+          }
+        }
+      ]
+    }
+  },
+  "/utils/errors": {
+    "post": {
+      "tags": [
+        "Errors"
+      ],
+      "description": "Fields project, package, enviroment, module, file and message are required",
+      "responses": {
+        "201": {
+          "description": "Created"
+        }
+      },
+      "requestBody": {
+        "required": true,
+        "description": "Request body",
+        "content": {
+          "application/json": {
+            "schema": {
+              "type": "object",
+              "properties": {
+                "project": {
+                  "type": "string",
+                  "example": "Gerando Falcoes"
+                },
+                "package": {
+                  "type": "string",
+                  "example": "Mobile"
+                },
+                "enviroment": {
+                  "type": "string",
+                  "example": "production"
+                },
+                "message": {
+                  "type": "string",
+                  "example": "Cannot read property map of undefined"
+                },
+                "module": {
+                  "type": "string",
+                  "example": "initial-screen"
+                },
+                "file": {
+                  "type": "string",
+                  "example": "listClasses.js"
+                },
+                "stack": {
+                  "type": "string",
+                  "example": "Error\n\tat module:1:16\n\tatindex.js:10:15"
+                },
+                "error": {
+                  "type": "string",
+                  "example": "{'error': 'object'}"
+                },
+                "ip": {
+                  "type": "string",
+                  "example": "200.150.200.150"
+                },
+                "method": {
+                  "type": "string",
+                  "example": "POST"
+                },
+                "path": {
+                  "type": "string",
+                  "example": "/students"
+                },
+                "reqheaders": {
+                  "type": "string",
+                  "example": "{'request': 'headers'}"
+                },
+                "reqbody": {
+                  "type": "string",
+                  "example": "{'request': 'body'}"
+                },
+                "status": {
+                  "type": "number",
+                  "example": 400
+                },
+                "statusText": {
+                  "type": "string",
+                  "example": "Invalid request"
+                },
+                "resheaders": {
+                  "type": "string",
+                  "example": "{'response': 'headers'}"
+                },
+                "resbody": {
+                  "type": "string",
+                  "example": "Missing age field"
+                },
+                "sqltext": {
+                  "type": "string",
+                  "example": "insert into students (.....)"
+                },
+                "envvars": {
+                  "type": "string",
+                  "example": "{'config1': 'value1'}"
+                },
+                "extra": {
+                  "type": "string",
+                  "example": "{'extra1': 'value1'}"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "get": {
+      "tags": [
+        "Errors"
+      ],
+      "description": "Fields project, package, enviroment, module, file and message are required",
+      "responses": {
+        "200": {
+          "description": "Listed",
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "project": {
+                      "type": "string",
+                      "example": "Gerando Falcoes"
+                    },
+                    "package": {
+                      "type": "string",
+                      "example": "Mobile"
+                    },
+                    "enviroment": {
+                      "type": "string",
+                      "example": "production"
+                    },
+                    "message": {
+                      "type": "string",
+                      "example": "Cannot read property map of undefined"
+                    },
+                    "module": {
+                      "type": "string",
+                      "example": "initial-screen"
+                    },
+                    "file": {
+                      "type": "string",
+                      "example": "listClasses.js"
+                    },
+                    "stack": {
+                      "type": "string",
+                      "example": "Error\\n\\tat module:1:16\\n\\tatindex.js:10:15"
+                    },
+                    "error": {
+                      "type": "string",
+                      "example": "{'error': 'object'}"
+                    },
+                    "ip": {
+                      "type": "string",
+                      "example": "200.150.200.150"
+                    },
+                    "method": {
+                      "type": "string",
+                      "example": "POST"
+                    },
+                    "path": {
+                      "type": "string",
+                      "example": "/students"
+                    },
+                    "reqheaders": {
+                      "type": "string",
+                      "example": "{'request': 'headers'}"
+                    },
+                    "reqbody": {
+                      "type": "string",
+                      "example": "{'request': 'body'}"
+                    },
+                    "status": {
+                      "type": "number",
+                      "example": 400
+                    },
+                    "statusText": {
+                      "type": "string",
+                      "example": "Invalid request"
+                    },
+                    "resheaders": {
+                      "type": "string",
+                      "example": "{'response': 'headers'}"
+                    },
+                    "resbody": {
+                      "type": "string",
+                      "example": "Missing age field"
+                    },
+                    "sqltext": {
+                      "type": "string",
+                      "example": "insert into students (.....)"
+                    },
+                    "envvars": {
+                      "type": "string",
+                      "example": "{'config1': 'value1'}"
+                    },
+                    "extra": {
+                      "type": "string",
+                      "example": "{'extra1': 'value1'}"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "parameters": [
+        {
+          "in": "query",
+          "name": "project",
+          "required": false,
+          "schema": {
+            "type": "string",
+            "example": "Gerando Falcoes"
+          }
+        },
+        {
+          "in": "query",
+          "name": "package",
+          "required": false,
+          "schema": {
+            "type": "string",
+            "example": "Mobile"
+          }
+        },
+        {
+          "in": "query",
+          "name": "enviroment",
+          "required": false,
+          "schema": {
+            "type": "string",
+            "example": "production"
+          }
+        },
+        {
+          "in": "query",
+          "name": "module",
+          "required": false,
+          "schema": {
+            "type": "string",
+            "example": "initial-screen"
+          }
+        },
+        {
+          "in": "query",
+          "name": "file",
+          "required": false,
+          "schema": {
+            "type": "string",
+            "example": "listClasses.js"
+          }
+        },
+        {
+          "in": "query",
+          "name": "message",
+          "required": false,
+          "schema": {
+            "type": "string",
+            "example": "%undefined%"
+          }
+        },
+        {
+          "in": "query",
+          "name": "stack",
+          "required": false,
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "in": "query",
+          "name": "error",
+          "required": false,
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "in": "query",
+          "name": "ip",
+          "required": false,
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "in": "query",
+          "name": "method",
+          "required": false,
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "in": "query",
+          "name": "path",
+          "required": false,
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "in": "query",
+          "name": "reqheaders",
+          "required": false,
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "in": "query",
+          "name": "reqbody",
+          "required": false,
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "in": "query",
+          "name": "status",
+          "required": false,
+          "schema": {
+            "type": "number"
+          }
+        },
+        {
+          "in": "query",
+          "name": "statusText",
+          "required": false,
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "in": "query",
+          "name": "resheaders",
+          "required": false,
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "in": "query",
+          "name": "resbody",
+          "required": false,
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "in": "query",
+          "name": "sqltext",
+          "required": false,
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "in": "query",
+          "name": "envvars",
+          "required": false,
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "in": "query",
+          "name": "extra",
+          "required": false,
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "in": "query",
+          "name": "limit",
+          "required": false,
+          "schema": {
+            "type": "number"
+          }
+        },
+        {
+          "in": "query",
+          "name": "offset",
+          "required": false,
+          "schema": {
+            "type": "number"
+          }
+        }
+      ]
+    }
+  },
+  "/utils/cities/{state}": {
+    "get": {
+      "tags": [
+        "Cities"
+      ],
+      "description": "List all",
+      "security": [],
+      "responses": {
+        "200": {
+          "description": "Listed",
+          "content": {
+            "application/json": {
+              "schema": {
+                "example": [
+                  "Acrelândia",
+                  "Assis Brasil",
+                  "Brasiléia",
+                  "Bujari",
+                  "Capixaba"
+                ]
+              }
+            }
+          }
+        }
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "state",
+          "required": true,
+          "description": "Term to query",
+          "schema": {
+            "type": "string",
+            "enum": [
+              "AC",
+              "AL",
+              "AP",
+              "AM",
+              "BA",
+              "CE",
+              "DF",
+              "ES",
+              "GO",
+              "MA",
+              "MT",
+              "MS",
+              "MG",
+              "PR",
+              "PB",
+              "PA",
+              "PE",
+              "PI",
+              "RN",
+              "RS",
+              "RJ",
+              "RO",
+              "RR",
+              "SC",
+              "SE",
+              "SP",
+              "TO"
+            ]
+          }
+        }
+      ]
+    }
+  },
+  "/utils/schools/{state}/{city}": {
+    "get": {
+      "tags": [
+        "Schools"
+      ],
+      "description": "List all",
+      "security": [],
+      "responses": {
+        "200": {
+          "description": "Listed",
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "siglaUf": {
+                      "type": "string",
+                      "example": "MG"
+                    },
+                    "codigoEscola": {
+                      "type": "integer",
+                      "example": 31262641
+                    },
+                    "nomeEscola": {
+                      "type": "string",
+                      "example": "SENAC BELO HORIZONTE"
+                    },
+                    "codigoUf": {
+                      "type": "integer",
+                      "example": 31
+                    },
+                    "nomeUf": {
+                      "type": "string",
+                      "example": "Minas Gerais"
+                    },
+                    "codigoCidade": {
+                      "type": "integer",
+                      "example": 3106200
+                    },
+                    "nomeCidade": {
+                      "type": "string",
+                      "example": "Belo Horizonte"
+                    },
+                    "tipoEscolaPrivada": {
+                      "type": "number",
+                      "example": 1
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "city",
+          "description": "Name of city",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "in": "path",
+          "name": "state",
+          "required": true,
+          "description": "Term to query",
+          "schema": {
+            "type": "string",
+            "enum": [
+              "AC",
+              "AL",
+              "AP",
+              "AM",
+              "BA",
+              "CE",
+              "DF",
+              "ES",
+              "GO",
+              "MA",
+              "MT",
+              "MS",
+              "MG",
+              "PR",
+              "PB",
+              "PA",
+              "PE",
+              "PI",
+              "RN",
+              "RS",
+              "RJ",
+              "RO",
+              "RR",
+              "SC",
+              "SE",
+              "SP",
+              "TO"
+            ]
+          }
+        }
+      ]
+    }
+  },
+  "/utils/schools/{state}/{city}/{type}": {
+    "get": {
+      "tags": [
+        "Schools"
+      ],
+      "description": "List all",
+      "security": [],
+      "responses": {
+        "200": {
+          "description": "Listed",
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "siglaUf": {
+                      "type": "string",
+                      "example": "MG"
+                    },
+                    "codigoEscola": {
+                      "type": "integer",
+                      "example": 31262641
+                    },
+                    "nomeEscola": {
+                      "type": "string",
+                      "example": "SENAC BELO HORIZONTE"
+                    },
+                    "codigoUf": {
+                      "type": "integer",
+                      "example": 31
+                    },
+                    "nomeUf": {
+                      "type": "string",
+                      "example": "Minas Gerais"
+                    },
+                    "codigoCidade": {
+                      "type": "integer",
+                      "example": 3106200
+                    },
+                    "nomeCidade": {
+                      "type": "string",
+                      "example": "Belo Horizonte"
+                    },
+                    "tipoEscolaPrivada": {
+                      "type": "integer",
+                      "example": 1
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "city",
+          "description": "Name of city",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "in": "path",
+          "name": "type",
+          "description": "Type of school",
+          "required": true,
+          "schema": {
+            "type": "string",
+            "enum": [
+              "publicas",
+              "privadas"
+            ]
+          }
+        },
+        {
+          "in": "path",
+          "name": "state",
+          "required": true,
+          "description": "Term to query",
+          "schema": {
+            "type": "string",
+            "enum": [
+              "AC",
+              "AL",
+              "AP",
+              "AM",
+              "BA",
+              "CE",
+              "DF",
+              "ES",
+              "GO",
+              "MA",
+              "MT",
+              "MS",
+              "MG",
+              "PR",
+              "PB",
+              "PA",
+              "PE",
+              "PI",
+              "RN",
+              "RS",
+              "RJ",
+              "RO",
+              "RR",
+              "SC",
+              "SE",
+              "SP",
+              "TO"
+            ]
+          }
+        }
+      ]
+    }
+  },
+  "/tags/{id}": {
+    "get": {
+      "tags": [
+        "Tags"
+      ],
+      "description": "Get a tag of class",
+      "responses": {
+        "200": {
+          "description": "Listed",
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "integer",
+                    "example": 1
+                  },
+                  "name": {
+                    "type": "string",
+                    "example": "Divisão"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "404": {
+          "description": "Not found"
+        }
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "required": true,
+          "description": "tag's Id",
+          "schema": {
+            "type": "string"
+          }
+        }
+      ]
+    },
+    "delete": {
+      "tags": [
+        "Tags"
+      ],
+      "description": "Delete a tag of class",
+      "responses": {
+        "204": {
+          "description": "Deleted"
+        }
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "required": true,
+          "description": "Tag's Id",
+          "schema": {
+            "type": "string"
+          }
+        }
+      ]
+    },
+    "patch": {
+      "tags": [
+        "Tags"
+      ],
+      "description": "Update a tag of class",
+      "responses": {
+        "204": {
+          "description": "Updated"
+        }
+      },
+      "requestBody": {
+        "required": true,
+        "description": "Request body",
+        "content": {
+          "application/json": {
+            "schema": {
+              "type": "object",
+              "required": [
+                "name"
+              ],
+              "properties": {
+                "name": {
+                  "type": "string",
+                  "example": "Geografia"
+                }
+              }
+            }
+          }
+        }
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "required": true,
+          "description": "Tag's Id",
+          "schema": {
+            "type": "string"
+          }
+        }
+      ]
+    }
+  },
+  "/tags": {
+    "post": {
+      "tags": [
+        "Tags"
+      ],
+      "description": "Insert a tag of class",
+      "responses": {
+        "201": {
+          "description": "Created"
+        }
+      },
+      "requestBody": {
+        "required": true,
+        "description": "Request body",
+        "content": {
+          "application/json": {
+            "schema": {
+              "type": "object",
+              "required": [
+                "name"
+              ],
+              "properties": {
+                "name": {
+                  "type": "string",
+                  "example": "Divisão"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "get": {
+      "tags": [
+        "Tags"
+      ],
+      "description": "List all tags of class",
+      "responses": {
+        "200": {
+          "description": "Listed",
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "query": {
+                    "type": "string",
+                    "example": "Divisão"
+                  },
+                  "limit": {
+                    "type": "integer",
+                    "example": 10
+                  },
+                  "offset": {
+                    "type": "integer",
+                    "example": 0
+                  },
+                  "total": {
+                    "type": "integer",
+                    "example": 1
+                  },
+                  "rows": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "id": {
+                          "type": "integer",
+                          "example": 1
+                        },
+                        "name": {
+                          "type": "string",
+                          "example": "Divisão"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "parameters": [
+        {
+          "in": "query",
+          "name": "query",
+          "description": "Term to query tag's name",
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "in": "query",
+          "name": "limit",
+          "description": "Result limit",
+          "schema": {
+            "type": "number"
+          }
+        },
+        {
+          "in": "query",
+          "name": "offset",
+          "description": "Result offset",
+          "schema": {
+            "type": "number"
+          }
+        }
+      ]
+    }
+  }
+}

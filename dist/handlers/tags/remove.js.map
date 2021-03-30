@@ -1,0 +1,1 @@
+{"version":3,"sources":["../../../src/handlers/tags/remove.js"],"names":["remove","params","models","tags"],"mappings":";;;;;;;;;AAAA;;AAEO,MAAMA,MAAM,GAAGC,MAAM,IAAIC,MAAM,CAACC,IAAP,CAAYH,MAAZ,CAAmBC,MAAnB,CAAzB","sourcesContent":["import * as models from \"~/models\";\n\nexport const remove = params => models.tags.remove(params);\n"],"file":"remove.js"}

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="16px" height="16px" viewBox="0 0 16 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 63.1 (92452) - https://sketch.com -->
+    <title>icn_units</title>
+    <desc>Created with Sketch.</desc>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="[Unidades]-Cadastrar-" transform="translate(-19.000000, -982.000000)" fill="#474649" fill-rule="nonzero">
+            <g id="icn_units" transform="translate(19.000000, 982.000000)">
+                <g id="Group">
+                    <polygon id="Path" points="14.4 1.87659574 8 0.0212765957 1.6 1.87659574 1.6 4.83829787 14.4 4.83829787"></polygon>
+                    <path d="M14.4,14.387234 L14.4,6.42978723 L1.6,6.42978723 L1.6,14.387234 L0.795744681,14.387234 C0.356267029,14.387234 -5.382049e-17,14.7435011 0,15.1829787 C5.382049e-17,15.6224564 0.356267029,15.9787234 0.795744681,15.9787234 L5.6,15.9787234 L5.6,15.9787234 L5.6,9.61276596 L10.4,9.61276596 L10.4,15.9787234 L15.2042553,15.9787234 C15.643733,15.9787234 16,15.6224564 16,15.1829787 C16,14.7435011 15.643733,14.387234 15.2042553,14.387234 L14.4,14.387234 L14.4,14.387234 Z" id="Path"></path>
+                    <path d="M8,11.2042553 C8.4418278,11.2042553 8.8,11.5624275 8.8,12.0042553 L8.8,15.9787234 L8.8,15.9787234 L7.2,15.9787234 L7.2,12.0042553 C7.2,11.5624275 7.5581722,11.2042553 8,11.2042553 Z" id="Rectangle"></path>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

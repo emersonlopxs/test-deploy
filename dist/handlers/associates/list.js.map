@@ -1,0 +1,1 @@
+{"version":3,"sources":["../../../src/handlers/associates/list.js"],"names":["list","params","models","associates"],"mappings":";;;;;;;;;AAAA;;AAEO,MAAMA,IAAI,GAAGC,MAAM,IAAIC,MAAM,CAACC,UAAP,CAAkBH,IAAlB,CAAuBC,MAAvB,CAAvB","sourcesContent":["import * as models from \"~/models\";\n\nexport const list = params => models.associates.list(params);\n"],"file":"list.js"}

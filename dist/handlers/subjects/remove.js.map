@@ -1,0 +1,1 @@
+{"version":3,"sources":["../../../src/handlers/subjects/remove.js"],"names":["remove","params","models","subjects"],"mappings":";;;;;;;;;AAAA;;AAEO,MAAMA,MAAM,GAAGC,MAAM,IAAIC,MAAM,CAACC,QAAP,CAAgBH,MAAhB,CAAuBC,MAAvB,CAAzB","sourcesContent":["import * as models from \"~/models\";\n\nexport const remove = params => models.subjects.remove(params);\n"],"file":"remove.js"}

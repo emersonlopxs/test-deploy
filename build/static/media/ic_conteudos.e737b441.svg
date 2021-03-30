@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="16px" height="12px" viewBox="0 0 16 12" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 63.1 (92452) - https://sketch.com -->
+    <title>icn_contents</title>
+    <desc>Created with Sketch.</desc>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="[Unidades]-Cadastrar-" transform="translate(-81.000000, -978.000000)" fill="#474649" fill-rule="nonzero">
+            <g id="icn_contents" transform="translate(81.000000, 978.000000)">
+                <path d="M15,7 L1,7 C0.44,7 0,6.56 0,6 C0,5.44 0.44,5 1,5 L15,5 C15.56,5 16,5.44 16,6 C16,6.56 15.56,7 15,7 Z M15,2 L1,2 C0.44,2 0,1.56 0,1 C0,0.44 0.44,0 1,0 L15,0 C15.56,0 16,0.44 16,1 C16,1.56 15.56,2 15,2 Z M1,10 L15,10 C15.56,10 16,10.44 16,11 C16,11.56 15.56,12 15,12 L1,12 C0.44,12 0,11.56 0,11 C0,10.44 0.44,10 1,10 Z" id="Shape"></path>
+            </g>
+        </g>
+    </g>
+</svg>

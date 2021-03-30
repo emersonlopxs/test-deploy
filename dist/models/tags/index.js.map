@@ -1,0 +1,1 @@
+{"version":3,"sources":["../../../src/models/tags/index.js"],"names":[],"mappings":";;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;AAAA;;AACA;;AACA;;AACA;;AACA","sourcesContent":["export { list } from \"./list\";\nexport { get } from \"./get\";\nexport { insert } from \"./insert\";\nexport { update } from \"./update\";\nexport { remove } from \"./remove\";\n"],"file":"index.js"}

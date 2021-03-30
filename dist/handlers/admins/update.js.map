@@ -1,0 +1,1 @@
+{"version":3,"sources":["../../../src/handlers/admins/update.js"],"names":["update","params","models","admins"],"mappings":";;;;;;;;;AAAA;;AAEO,MAAMA,MAAM,GAAGC,MAAM,IAAIC,MAAM,CAACC,MAAP,CAAcH,MAAd,CAAqBC,MAArB,CAAzB","sourcesContent":["import * as models from \"~/models\";\n\nexport const update = params => models.admins.update(params);\n"],"file":"update.js"}

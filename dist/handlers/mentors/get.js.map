@@ -1,0 +1,1 @@
+{"version":3,"sources":["../../../src/handlers/mentors/get.js"],"names":["get","params","models","mentors"],"mappings":";;;;;;;;;AAAA;;AAEO,MAAMA,GAAG,GAAGC,MAAM,IAAIC,MAAM,CAACC,OAAP,CAAeH,GAAf,CAAmBC,MAAnB,CAAtB","sourcesContent":["import * as models from \"~/models\";\n\nexport const get = params => models.mentors.get(params);\n"],"file":"get.js"}

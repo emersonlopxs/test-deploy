@@ -1,0 +1,1 @@
+{"version":3,"sources":["../../../src/models/grades/sqls.js"],"names":["select","from"],"mappings":";;;;;;AAAO,MAAMA,MAAM,GAAI;AACvB;AACA;AACA;AACA;AACA,CALO;;AAOA,MAAMC,IAAI,GAAI;AACrB;AACA,CAFO","sourcesContent":["export const select = `\n  select\n    id,\n    name\n\n`;\n\nexport const from = `\n  from grades\n`;\n"],"file":"sqls.js"}

@@ -1,0 +1,1 @@
+{"version":3,"sources":["../../../src/handlers/class-types/get.js"],"names":["get","params","models","classTypes"],"mappings":";;;;;;;;;AAAA;;AAEO,MAAMA,GAAG,GAAGC,MAAM,IAAIC,MAAM,CAACC,UAAP,CAAkBH,GAAlB,CAAsBC,MAAtB,CAAtB","sourcesContent":["import * as models from \"~/models\";\n\nexport const get = params => models.classTypes.get(params);\n"],"file":"get.js"}

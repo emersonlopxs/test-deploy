@@ -1,0 +1,1 @@
+{"version":3,"sources":["../../../src/handlers/sites/get.js"],"names":["get","params","models","sites"],"mappings":";;;;;;;;;AAAA;;AAEO,MAAMA,GAAG,GAAGC,MAAM,IAAIC,MAAM,CAACC,KAAP,CAAaH,GAAb,CAAiBC,MAAjB,CAAtB","sourcesContent":["import * as models from \"~/models\";\n\nexport const get = params => models.sites.get(params);\n"],"file":"get.js"}

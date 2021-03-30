@@ -1,0 +1,1 @@
+{"version":3,"sources":["../../../src/handlers/classes/approve.js"],"names":["approve","params","models","classes"],"mappings":";;;;;;;;;AAAA;;AAEO,MAAMA,OAAO,GAAGC,MAAM,IAAIC,MAAM,CAACC,OAAP,CAAeH,OAAf,CAAuBC,MAAvB,CAA1B","sourcesContent":["import * as models from \"~/models\";\n\nexport const approve = params => models.classes.approve(params);\n"],"file":"approve.js"}

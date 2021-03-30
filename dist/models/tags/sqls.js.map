@@ -1,0 +1,1 @@
+{"version":3,"sources":["../../../src/models/tags/sqls.js"],"names":["select","from"],"mappings":";;;;;;AAAO,MAAMA,MAAM,GAAI;AACvB;AACA;AACA;AACA,CAJO;;AAMA,MAAMC,IAAI,GAAI;AACrB;AACA,CAFO","sourcesContent":["export const select = `\n  select\n    id,\n    name\n`;\n\nexport const from = `\n  from tags\n`;\n"],"file":"sqls.js"}

@@ -1,0 +1,1 @@
+{"version":3,"sources":["../../../src/handlers/teachers/list.js"],"names":["list","params","models","teachers"],"mappings":";;;;;;;;;AAAA;;AAEO,MAAMA,IAAI,GAAGC,MAAM,IAAIC,MAAM,CAACC,QAAP,CAAgBH,IAAhB,CAAqBC,MAArB,CAAvB","sourcesContent":["import * as models from \"~/models\";\n\nexport const list = params => models.teachers.list(params);\n"],"file":"list.js"}

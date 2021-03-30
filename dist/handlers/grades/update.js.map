@@ -1,0 +1,1 @@
+{"version":3,"sources":["../../../src/handlers/grades/update.js"],"names":["update","params","models","grades"],"mappings":";;;;;;;;;AAAA;;AAEO,MAAMA,MAAM,GAAGC,MAAM,IAAIC,MAAM,CAACC,MAAP,CAAcH,MAAd,CAAqBC,MAArB,CAAzB","sourcesContent":["import * as models from \"~/models\";\n\nexport const update = params => models.grades.update(params);\n"],"file":"update.js"}

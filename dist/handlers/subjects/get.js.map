@@ -1,0 +1,1 @@
+{"version":3,"sources":["../../../src/handlers/subjects/get.js"],"names":["get","params","models","subjects"],"mappings":";;;;;;;;;AAAA;;AAEO,MAAMA,GAAG,GAAGC,MAAM,IAAIC,MAAM,CAACC,QAAP,CAAgBH,GAAhB,CAAoBC,MAApB,CAAtB","sourcesContent":["import * as models from \"~/models\";\n\nexport const get = params => models.subjects.get(params);\n"],"file":"get.js"}

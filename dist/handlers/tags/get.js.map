@@ -1,0 +1,1 @@
+{"version":3,"sources":["../../../src/handlers/tags/get.js"],"names":["get","params","models","tags"],"mappings":";;;;;;;;;AAAA;;AAEO,MAAMA,GAAG,GAAGC,MAAM,IAAIC,MAAM,CAACC,IAAP,CAAYH,GAAZ,CAAgBC,MAAhB,CAAtB","sourcesContent":["import * as models from \"~/models\";\n\nexport const get = params => models.tags.get(params);\n"],"file":"get.js"}

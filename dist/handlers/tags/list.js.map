@@ -1,0 +1,1 @@
+{"version":3,"sources":["../../../src/handlers/tags/list.js"],"names":["list","params","models","tags"],"mappings":";;;;;;;;;AAAA;;AAEO,MAAMA,IAAI,GAAGC,MAAM,IAAIC,MAAM,CAACC,IAAP,CAAYH,IAAZ,CAAiBC,MAAjB,CAAvB","sourcesContent":["import * as models from \"~/models\";\n\nexport const list = params => models.tags.list(params);\n"],"file":"list.js"}

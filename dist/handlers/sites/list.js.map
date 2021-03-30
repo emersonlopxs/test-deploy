@@ -1,0 +1,1 @@
+{"version":3,"sources":["../../../src/handlers/sites/list.js"],"names":["list","params","models","sites"],"mappings":";;;;;;;;;AAAA;;AAEO,MAAMA,IAAI,GAAGC,MAAM,IAAIC,MAAM,CAACC,KAAP,CAAaH,IAAb,CAAkBC,MAAlB,CAAvB","sourcesContent":["import * as models from \"~/models\";\n\nexport const list = params => models.sites.list(params);\n"],"file":"list.js"}

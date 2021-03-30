@@ -1,0 +1,1 @@
+{"version":3,"sources":["../../../src/models/reqres/index.js"],"names":[],"mappings":";;;;;;;;;;;;;;;;;;AAAA;;AACA","sourcesContent":["export { insert } from \"./insert\";\nexport { list } from \"./list\";\n"],"file":"index.js"}

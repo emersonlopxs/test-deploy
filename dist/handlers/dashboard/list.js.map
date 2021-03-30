@@ -1,0 +1,1 @@
+{"version":3,"sources":["../../../src/handlers/dashboard/list.js"],"names":["list","params","models","dashboard"],"mappings":";;;;;;;;;AAAA;;AAEO,MAAMA,IAAI,GAAGC,MAAM,IAAIC,MAAM,CAACC,SAAP,CAAiBH,IAAjB,CAAsBC,MAAtB,CAAvB","sourcesContent":["import * as models from \"~/models\";\n\nexport const list = params => models.dashboard.list(params);\n"],"file":"list.js"}
